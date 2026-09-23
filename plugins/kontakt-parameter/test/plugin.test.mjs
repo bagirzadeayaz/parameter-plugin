@@ -139,7 +139,7 @@ test('app view preserves the application result contract', () => {
   assert.equal(result.id, 't1'); assert.deepEqual(result.scrapedParams, { Display: 'OLED' });
   assert.deepEqual(result.scrapedParamsRU, { Display: 'OLED' }); assert.equal(result.analysisProgress.status, 'done');
   assert.equal(result.analysisProgress.stage, undefined);
-  assert.equal(result.analysisProgress.message, 'Product information is ready.');
+  assert.equal(result.analysisProgress.message, 'Məhsul məlumatları hazırdır.');
   assert.deepEqual(result.displayParams, { Display: 'OLED' });
   assert.equal(result.scrapedData.diagnostics.acceptedSources, 1);
 });

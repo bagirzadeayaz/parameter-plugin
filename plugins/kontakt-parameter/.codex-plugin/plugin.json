@@ -1,6 +1,6 @@
 {
   "name": "kontakt-parameter",
-  "version": "0.1.2+codex.20260923065800",
+  "version": "0.1.2+codex.20260923073956",
   "description": "Research product parameters with Codex native web search and save them to Kontakt.",
   "author": {
     "name": "Kontakt Internal"
@@ -17,7 +17,7 @@
       "Progress monitoring",
       "Evidence review"
     ],
-    "defaultPrompt": "Research exact product parameters with verified images and sources; save the Kontakt result and PDF."
+    "defaultPrompt": "M\u0259hsul parametrl\u0259rini m\u0259nb\u0259l\u0259r v\u0259 \u015f\u0259kill\u0259 t\u0259sdiql\u0259, Kontakt n\u0259tic\u0259sini v\u0259 PDF-i saxla; yaln\u0131z Az\u0259rbaycan dilind\u0259 cavab ver."
   },
   "mcpServers": "./.mcp.json"
 }

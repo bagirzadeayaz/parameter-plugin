@@ -23,12 +23,12 @@ export function decodeValue(value = {}) {
 export function decodeFields(fields = {}) { return Object.fromEntries(Object.entries(fields).map(([key, value]) => [key, decodeValue(value)])); }
 
 const progressCopy = {
-  queued: 'Your product request is queued.',
-  running: 'Product information is being prepared.',
-  cancelling: 'Your request is being stopped.',
-  cancelled: 'The request was cancelled.',
-  done: 'Product information is ready.',
-  error: 'The product information could not be completed.',
+  queued: 'Məhsul sorğusu növbədədir.',
+  running: 'Məhsul məlumatları hazırlanır.',
+  cancelling: 'Sorğu dayandırılır.',
+  cancelled: 'Sorğu ləğv edildi.',
+  done: 'Məhsul məlumatları hazırdır.',
+  error: 'Məhsul məlumatlarını hazırlamaq mümkün olmadı.',
 };
 
 export function customerProgress(progress = {}, now = Date.now()) {
@@ -48,7 +48,7 @@ export function customerProgress(progress = {}, now = Date.now()) {
   return {
     pct,
     status,
-    message: progressCopy[status] || 'Product request status is available.',
+    message: progressCopy[status] || 'Məhsul sorğusunun vəziyyəti məlumdur.',
     elapsedSeconds,
     estimatedRemainingSeconds,
     estimateIsIndicative: true,

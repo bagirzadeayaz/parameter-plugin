@@ -13,3 +13,5 @@ Use the installed plugin path returned by the installer. Check that Python can i
 Open the secure Parameter sign-in using the plugin's `scripts/login.mjs` or its sign-in tool. Never ask me to paste passwords, refresh tokens or API keys into chat. I will sign in or register in the browser; if the account is pending, explain that administrator approval is needed rather than claiming setup is complete.
 
 Verify the installed version and available connection status, accurately report anything that remains incomplete, and tell me to start a new Codex chat so the plugin's tools and instructions load. In the new chat I can select Kontakt Parameter and send a product name. The plugin should follow its bundled research workflow and provide the product image, full parameter table with proof links beside confirmed values, and a PDF. Do not fabricate a successful test or start a product search without my product request.
+
+Write all messages to me in Azerbaijani, including setup progress, questions, errors, and the completed product report. Keep product names, website names, links, and exact parameter values intact.

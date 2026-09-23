@@ -1,14 +1,14 @@
 # Kontakt Parameter — standalone Codex plugin
 
-This project contains only the Kontakt Parameter plugin and its Codex marketplace catalog. It does not contain the web app, backend source, account sessions, private API keys, or service-account credentials. It connects to the existing Kontakt Parameter backend; it is not a standalone backend deployment.
+This project contains only the Kontakt Parameter plugin and its Codex marketplace catalog. It does not contain or connect to the web app, backend, Firebase, another database, account sessions, private API keys, or service-account credentials. Results and PDFs are saved locally on the user's device.
 
 ## Before using it
 
 - Use a current Codex desktop/CLI installation signed in to your own Codex account, with native live Web Search available.
 - Install Node.js 20 or newer, available as `node` on PATH, and Git for GitHub installation.
-- PDF generation needs Python 3 with `reportlab` and `Pillow`, and a Unicode font. The plugin checks Codex's bundled Python first, then system Python. If needed, use `python -m pip install reportlab Pillow` in your selected Python environment. An explicit runtime can be selected with `KONTAKT_PDF_PYTHON`.
-- Sign in with your own approved Parameter account. Registration is available, but new accounts require administrator approval. No search-provider API key is required.
-- A private GitHub repository requires each installing user to have access. Publishing this package does not grant Parameter account access.
+- PDF generation needs Python 3 with `reportlab` and `Pillow`, and a Unicode font. The plugin checks Codex's bundled Python first, then system Python. If needed, use `python -m pip install reportlab Pillow` in your selected Python environment. An explicit runtime can be selected with `KONTAKT_PDF_PYTHON`. PDFs are collected in `Documents/Kontakt Parameter/PDF` under product-based filenames; set `KONTAKT_PDF_OUTPUT_DIR` to choose another local folder.
+- No Parameter account, registration, sign-in, password, administrator approval, guest identity, database connection, or search-provider API key is required.
+- A private GitHub repository still requires each installing user to have repository access.
 
 ## Install this downloaded project
 
@@ -18,10 +18,9 @@ From this project root:
 codex plugin marketplace add .
 codex plugin add kontakt-parameter@kontakt-internal
 node plugins/kontakt-parameter/scripts/enable-web-search.mjs
-node plugins/kontakt-parameter/scripts/login.mjs
 ```
 
-The web-search setup changes the root `web_search` setting in your Codex user configuration to `live`. Sign-in opens a browser; do not put a password in chat. Start a new Codex chat after installation, select Kontakt Parameter and send a product model. If new tools are not visible, restart Codex.
+The web-search setup changes the root `web_search` setting in your Codex user configuration to `live`. No Parameter sign-in page opens. Start a new Codex chat after installation, select Kontakt Parameter and send a product model. If new tools are not visible, restart Codex.
 
 ## Publish later
 

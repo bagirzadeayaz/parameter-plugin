@@ -15,7 +15,6 @@ codex plugin add "kontakt-parameter@kontakt-internal"
 node (Join-Path $PSScriptRoot "scripts\enable-web-search.mjs")
 
 Write-Host ""
-Write-Host "Plugin installed and live Codex web search enabled. A secure account window will open in your browser."
-node (Join-Path $PSScriptRoot "scripts\login.mjs")
+Write-Host "Plugin installed and live Codex web search enabled. No Parameter sign-in is required."
 Write-Host ""
 Write-Host "Done. Open a new Codex task and ask it to search for a product."

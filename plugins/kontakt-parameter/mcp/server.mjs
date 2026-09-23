@@ -1,27 +1,24 @@
 import { pathToFileURL } from 'node:url';
 import readline from 'node:readline';
-import { FirebaseClient } from './firebase.mjs';
-import { shapeTask } from './firestore.mjs';
-import { loadSession, readPublicConfig, redactError, removeSession } from './auth.mjs';
-import { startBrowserAuth } from './browser-auth.mjs';
+import { LocalClient } from './local.mjs';
+import { shapeTask } from './result.mjs';
 import { getCategorySchema } from './schema.mjs';
 import { fetchProductImage } from './image.mjs';
 import { existingProductPdf, generateProductPdf } from './pdf.mjs';
 
 const categorySchema = { type: 'string', enum: ['phone', 'tablet', 'notebook', 'fridge', 'washing_machine'] };
+function redactError(error) { return String(error?.message || error || 'Unknown error').replace(/((?:refresh_token|id_token|password|api[_-]?key)\s*[=:]\s*)[^\s,}]+/gi, '$1[redacted]').slice(0, 800); }
 export const toolDefinitions = [
-  { name: 'begin_parameter_sign_in', description: 'Open the secure Kontakt Parameter browser sign-in or registration window and wait for it to finish. Keep the current turn active; after successful approved-account sign-in, continue the original product request without asking the user to send it again. Passwords go directly to Firebase Authentication and are never exposed to the chat or MCP server.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
-  { name: 'sign_out_parameter_account', description: 'Remove the current local Kontakt Parameter session. This does not delete the employee account.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
-  { name: 'parameter_connection_status', description: 'Check Firebase configuration, authentication, project, approved role, and service health without returning credentials.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+  { name: 'parameter_connection_status', description: 'Check that local plugin storage is ready. No database connection, user sign-in, registration, password, or approval is used.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'get_product_schema', description: 'Return the exact ordered application schema for one supported product category.', inputSchema: { type: 'object', required: ['category'], properties: { category: categorySchema }, additionalProperties: false } },
   { name: 'inspect_product_image', description: 'Read-only retrieval of an exact-product public HTTPS image so Codex can inspect the actual pixels. Use only after Web Search identifies the image and its source product page.', inputSchema: { type: 'object', required: ['image_url', 'source_url'], properties: { image_url: { type: 'string', format: 'uri', pattern: '^https://' }, source_url: { type: 'string', format: 'uri', pattern: '^https://' }, expected_product: { type: 'string', minLength: 2, maxLength: 500 } }, additionalProperties: false } },
   { name: 'start_product_search', description: 'Create a product-search transaction for Codex native web research. The transaction must continue in the same turn through research, per-field recovery, successful draft validation, save, automatic PDF generation, and complete rendering. Validation failures are non-terminal internal loop instructions and must never be shown as the result. An explicit product-search request authorizes start and final save, so do not ask for another confirmation. This does not call OpenRouter, Exa, or Firecrawl.', inputSchema: { type: 'object', required: ['product_name', 'category'], properties: { product_name: { type: 'string', minLength: 2, maxLength: 500 }, category: categorySchema, official_url: { type: 'string', format: 'uri', pattern: '^https://' } }, additionalProperties: false } },
-  { name: 'rerun_product_search', description: 'Restart an authorized task for Codex native web research. This does not call OpenRouter, Exa, or Firecrawl. Requires user approval.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string', minLength: 1, maxLength: 128 } }, additionalProperties: false } },
-  { name: 'list_product_searches', description: 'List the signed-in user’s recent product searches.', inputSchema: { type: 'object', properties: { category: categorySchema, status: { type: 'string', enum: ['queued', 'running', 'done', 'error', 'cancelled'] }, limit: { type: 'integer', minimum: 1, maximum: 50, default: 10 } }, additionalProperties: false } },
-  { name: 'get_product_search', description: 'Get an authorized search status or result. The app view returns the same structured result fields used by the Parameter application. When a completed result is returned, always render its complete parameter table and include its generated PDF.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string' }, view: { type: 'string', enum: ['summary', 'results', 'evidence', 'app', 'all'], default: 'summary' }, fields: { type: 'array', items: { type: 'string' }, uniqueItems: true } }, additionalProperties: false } },
-  { name: 'generate_product_search_pdf', description: 'Generate or regenerate the standard Kontakt PDF for an authorized saved search. The PDF uses the saved product image and exact saved parameter values.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string', minLength: 1, maxLength: 128 } }, additionalProperties: false } },
+  { name: 'rerun_product_search', description: 'Restart a locally saved task for Codex native web research. This does not call OpenRouter, Exa, or Firecrawl. Requires user approval.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string', minLength: 1, maxLength: 128 } }, additionalProperties: false } },
+  { name: 'list_product_searches', description: 'List recent product searches saved locally on this device.', inputSchema: { type: 'object', properties: { category: categorySchema, status: { type: 'string', enum: ['queued', 'running', 'done', 'error', 'cancelled'] }, limit: { type: 'integer', minimum: 1, maximum: 50, default: 10 } }, additionalProperties: false } },
+  { name: 'get_product_search', description: 'Get a locally saved search status or result. The app view returns the complete structured result. When a completed result is returned, always render its complete parameter table and include its generated PDF.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string' }, view: { type: 'string', enum: ['summary', 'results', 'evidence', 'app', 'all'], default: 'summary' }, fields: { type: 'array', items: { type: 'string' }, uniqueItems: true } }, additionalProperties: false } },
+  { name: 'generate_product_search_pdf', description: 'Generate or regenerate the standard Kontakt PDF for a locally saved search. The PDF uses the saved product image and exact saved parameter values.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string', minLength: 1, maxLength: 128 } }, additionalProperties: false } },
   { name: 'wait_product_search', description: 'Wait up to 120 seconds for progress to change or a search to finish. Returns only customer-safe percentage and indicative timing, never internal stage text. Prefer this to frequent manual polling. If it reports done, immediately fetch the app view and show the full table.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string' }, after_heartbeat: { type: 'number', default: 0 }, timeout_seconds: { type: 'integer', minimum: 1, maximum: 120, default: 120 } }, additionalProperties: false } },
-  { name: 'cancel_product_search', description: 'Request cancellation of an authorized active search. Requires user approval.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string' } }, additionalProperties: false } },
+  { name: 'cancel_product_search', description: 'Cancel a locally saved active search. Requires user approval.', inputSchema: { type: 'object', required: ['task_id'], properties: { task_id: { type: 'string' } }, additionalProperties: false } },
   { name: 'save_product_search_result', description: 'Normalize and save Codex native Web Search results in the Kontakt.az template, automatically generate the standard image-and-parameters PDF, then return the complete saved app-format result and PDF file. Always render its full parameter table, at least one exact-product image, the PDF link, and a linked per-source extracted-parameter count immediately. The original explicit product-search request authorizes the final save, so do not ask for another confirmation. Missing and conflicting fields must receive additional natural research, without fixed search modes or query limits.', inputSchema: { type: 'object', required: ['task_id', 'parameters_az', 'sources', 'product_images', 'recovery_report'], properties: {
     task_id: { type: 'string', minLength: 1, maxLength: 128 },
     parameters_az: { type: 'object', additionalProperties: { type: ['string', 'null'] } },
@@ -150,45 +147,10 @@ export function analysisPayload(rawArgs) {
     recoveryReport: args.recovery_report,
   };
 }
-export async function callTool(name, args = {}, client = new FirebaseClient(), { startBrowserAuthImpl = startBrowserAuth } = {}) {
-  if (name === 'begin_parameter_sign_in') {
-    const flow = await startBrowserAuthImpl({ launch: true });
-    const result = await flow.completion;
-    if (!result?.ok) {
-      return content({
-        opened: true,
-        authenticated: false,
-        expired: result?.expired === true,
-        cancelled: result?.cancelled === true,
-        message: result?.expired
-          ? 'Giriş üçün ayrılmış vaxt bitdi. Giriş pəncərəsini yenidən açın.'
-          : (result?.message || 'Giriş tamamlanmadı.'),
-      });
-    }
-    return content({
-      opened: true,
-      authenticated: result.pending !== true,
-      pending: result.pending === true,
-      email: result.email,
-      role: result.role,
-      message: result.pending
-        ? 'Qeydiyyat tamamlandı. Məhsul axtarışından əvvəl hesab administrator tərəfindən təsdiqlənməlidir.'
-        : 'Giriş tamamlandı. Cari məhsul sorğusuna davam edin.',
-      continueOriginalRequest: result.pending !== true,
-    });
-  }
-  if (name === 'sign_out_parameter_account') {
-    await removeSession();
-    return content({ authenticated: false, message: 'Signed out of Kontakt Parameter on this device.' });
-  }
+export async function callTool(name, args = {}, client = new LocalClient()) {
   if (name === 'parameter_connection_status') {
-    const session = await loadSession();
-    if (!session) {
-      try { const config = await readPublicConfig(); return content({ configured: true, authenticated: false, healthy: false, firebaseProject: config.projectId, region: config.region, message: 'Call begin_parameter_sign_in to sign in or register securely in the browser.' }); }
-      catch (error) { return content({ configured: false, authenticated: false, healthy: false, message: redactError(error) }); }
-    }
-    const user = await client.getUser();
-    return content({ configured: true, authenticated: true, healthy: true, firebaseProject: session.projectId, region: session.region, user: { uid: session.uid, email: session.email, role: user.role } });
+    try { return content(await client.status()); }
+    catch (error) { return content({ configured: false, healthy: false, localOnly: true, databaseAccess: false, message: redactError(error) }); }
   }
   if (name === 'get_product_schema') return content(getCategorySchema(args.category));
   if (name === 'inspect_product_image') {
@@ -205,7 +167,7 @@ export async function callTool(name, args = {}, client = new FirebaseClient(), {
   if (name === 'rerun_product_search') return content(await client.rerun(args.task_id));
   if (name === 'list_product_searches') return content({ searches: await client.list(args) });
   if (name === 'get_product_search') {
-    const result = shapeTask(await client.authorizedTask(args.task_id), args.view || 'summary', args.fields || []);
+    const result = shapeTask(await client.getTask(args.task_id), args.view || 'summary', args.fields || []);
     const pdfReport = result?.result?.status === 'done' || result?.status === 'done' || result?.analysisProgress?.status === 'done'
       ? await existingProductPdf(result).catch(() => null)
       : null;
@@ -213,16 +175,16 @@ export async function callTool(name, args = {}, client = new FirebaseClient(), {
     return content(response, pdfResource(pdfReport, result.productName));
   }
   if (name === 'generate_product_search_pdf') {
-    const result = shapeTask(await client.authorizedTask(args.task_id), 'app');
+    const result = shapeTask(await client.getTask(args.task_id), 'app');
     const pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result));
     return content({ taskId: args.task_id, pdfReport }, pdfResource(pdfReport, result.productName));
   }
   if (name === 'wait_product_search') return content(await client.wait(args.task_id, args.after_heartbeat || 0, args.timeout_seconds || 120));
-  if (name === 'cancel_product_search') { await client.authorizedTask(args.task_id); return content(await client.callable('cancelProductAnalysis', { taskId: args.task_id })); }
+  if (name === 'cancel_product_search') { await client.getTask(args.task_id); return content(await client.callable('cancelProductAnalysis', { taskId: args.task_id })); }
   if (name === 'validate_product_search_draft') return content(await client.validateCodexResult(args.task_id, analysisPayload(args)));
   if (name === 'save_product_search_result') {
     const saved = await client.saveCodexResult(args.task_id, analysisPayload(args));
-    const result = shapeTask(await client.authorizedTask(args.task_id), 'app');
+    const result = shapeTask(await client.getTask(args.task_id), 'app');
     let pdfReport;
     try { pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result)); }
     catch (error) {
@@ -264,7 +226,7 @@ export async function handleMessage(message, client) {
   return { jsonrpc: '2.0', id: message.id, error: { code: -32601, message: 'Method not found' } };
 }
 
-export function runStdio(client = new FirebaseClient()) {
+export function runStdio(client = new LocalClient()) {
   const rl = readline.createInterface({ input: process.stdin, crlfDelay: Infinity });
   rl.on('line', async line => { if (!line.trim()) return; let response; try { response = await handleMessage(JSON.parse(line), client); } catch (error) { response = { jsonrpc: '2.0', id: null, error: { code: -32700, message: redactError(error) } }; } if (response) process.stdout.write(`${JSON.stringify(response)}\n`); });
 }

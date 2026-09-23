@@ -2,7 +2,7 @@ import { execFile } from 'node:child_process';
 import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
-import { basename, dirname, extname, join, resolve } from 'node:path';
+import { basename, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 import { fetchProductImage } from './image.mjs';
@@ -11,9 +11,10 @@ import { buildParameterRows } from './presentation.mjs';
 const runFile = promisify(execFile);
 const GENERATOR = fileURLToPath(new URL('../scripts/generate_product_pdf.py', import.meta.url));
 
-function safeSlug(value) {
-  const ascii = String(value || 'product').normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
-  return ascii.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80).toLowerCase() || 'product';
+function safeFilePart(value) {
+  return String(value || 'Məhsul').normalize('NFC')
+    .replace(/[<>:"/\\|?*\x00-\x1f]/g, ' ')
+    .replace(/\s+/g, ' ').trim().slice(0, 100).replace(/[. ]+$/g, '') || 'Məhsul';
 }
 
 function defaultOutputRoot() {
@@ -21,9 +22,16 @@ function defaultOutputRoot() {
   return join(process.env.USERPROFILE || homedir(), 'Documents', 'Kontakt Parameter', 'PDF');
 }
 
-function outputPathFor(result, outputRoot = defaultOutputRoot()) {
-  const id = String(result?.id || 'result');
-  return join(outputRoot, `${safeSlug(result?.productName)}-${safeSlug(id)}-v2.pdf`);
+export function outputPathFor(result, outputRoot = defaultOutputRoot()) {
+  const stamp = Number(result?.createdAt || result?.updatedAt || 0);
+  const date = Number.isFinite(stamp) && stamp > 0 ? `${new Date(stamp).toISOString().slice(0, 10)} - ` : '';
+  const id = String(result?.id || 'result').replace(/[^a-zA-Z0-9]/g, '').slice(0, 12) || 'result';
+  return join(outputRoot, `${safeFilePart(result?.productName)} - ${date}${id}.pdf`);
+}
+
+function legacyOutputPathFor(result, outputRoot) {
+  const slug = value => String(value || 'product').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80).toLowerCase() || 'product';
+  return join(outputRoot, `${slug(result?.productName)}-${slug(result?.id || 'result')}-v2.pdf`);
 }
 
 async function canAccess(path) {
@@ -110,6 +118,7 @@ export async function generateProductPdf(result, {
     return {
       generated: true,
       path: destination,
+      directoryPath: outputRoot,
       fileUri: pathToFileURL(destination).href,
       fileName: basename(destination),
       mimeType: 'application/pdf',
@@ -123,7 +132,7 @@ export async function generateProductPdf(result, {
 }
 
 export async function existingProductPdf(result, { outputRoot = defaultOutputRoot() } = {}) {
-  const path = outputPathFor(result, outputRoot);
+  const path = (await canAccess(outputPathFor(result, outputRoot))) ? outputPathFor(result, outputRoot) : legacyOutputPathFor(result, outputRoot);
   if (!(await canAccess(path))) return null;
-  return { generated: true, path, fileUri: pathToFileURL(path).href, fileName: basename(path), mimeType: 'application/pdf', template: 'kontakt-product-report-v2' };
+  return { generated: true, path, directoryPath: outputRoot, fileUri: pathToFileURL(path).href, fileName: basename(path), mimeType: 'application/pdf', template: 'kontakt-product-report-v2' };
 }

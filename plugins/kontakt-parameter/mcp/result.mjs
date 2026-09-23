@@ -1,27 +1,5 @@
 import { buildParameterRows, renderParameterTable } from './presentation.mjs';
 
-export function encodeValue(value) {
-  if (value === null || value === undefined) return { nullValue: null };
-  if (Array.isArray(value)) return { arrayValue: { values: value.map(encodeValue) } };
-  if (typeof value === 'boolean') return { booleanValue: value };
-  if (typeof value === 'number') return Number.isInteger(value) ? { integerValue: String(value) } : { doubleValue: value };
-  if (typeof value === 'object') return { mapValue: { fields: encodeFields(value) } };
-  return { stringValue: String(value) };
-}
-export function encodeFields(object = {}) { return Object.fromEntries(Object.entries(object).map(([key, value]) => [key, encodeValue(value)])); }
-export function decodeValue(value = {}) {
-  if ('nullValue' in value) return null;
-  if ('stringValue' in value) return value.stringValue;
-  if ('integerValue' in value) return Number(value.integerValue);
-  if ('doubleValue' in value) return Number(value.doubleValue);
-  if ('booleanValue' in value) return value.booleanValue;
-  if ('timestampValue' in value) return value.timestampValue;
-  if ('arrayValue' in value) return (value.arrayValue.values || []).map(decodeValue);
-  if ('mapValue' in value) return decodeFields(value.mapValue.fields || {});
-  return undefined;
-}
-export function decodeFields(fields = {}) { return Object.fromEntries(Object.entries(fields).map(([key, value]) => [key, decodeValue(value)])); }
-
 const progressCopy = {
   queued: 'Məhsul sorğusu növbədədir.',
   running: 'Məhsul məlumatları hazırlanır.',

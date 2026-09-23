@@ -2,9 +2,11 @@
 
 This plugin lets Codex research product parameters with Codex's native web-search capability and save results and PDFs locally on the user's device. It supports phones, tablets, notebooks, refrigerators, and washing machines. It does not connect to Firebase or any other database.
 
+The bundled launcher automatically checks the public plugin repository before each new product request. It downloads compatible runtime changes, including `workflow.md`, and uses them immediately in the same Codex task. An ongoing search keeps its original version. Failed downloads or compatibility checks preserve the last working runtime. See the root README for cache locations, rate limits, testing, and the one-time migration for older installations.
+
 Before research starts, omitted or invalid product variants are resolved one dimension at a time from official evidence. Colour is selected first, storage or the category's equivalent capacity is selected second, and any remaining configurable dimensions follow. Each question includes the complete verified option set compatible with earlier selections.
 
-For GitHub installation, paste the prompt from [`KONTAKT_PARAMETER_INITIAL_PROMPT.md`](../../KONTAKT_PARAMETER_INITIAL_PROMPT.md), after replacing its repository URL placeholder. See the [project setup guide](../../README.md) for runtime requirements. Users do not provide search-provider API keys.
+For GitHub installation, paste the prompt from [`KONTAKT_PARAMETER_INITIAL_PROMPT.md`](../../KONTAKT_PARAMETER_INITIAL_PROMPT.md). See the [project setup guide](../../README.md) for runtime requirements. Users do not provide search-provider API keys.
 
 ## Local access
 

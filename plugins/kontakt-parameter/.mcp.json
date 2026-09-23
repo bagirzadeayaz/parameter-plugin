@@ -5,7 +5,7 @@
       "description": "Codex-native product research with local-only result and PDF storage.",
       "cwd": ".",
       "command": "node",
-      "args": ["./mcp/server.mjs", "--stdio"],
+      "args": ["./mcp/bootstrap.mjs", "--stdio"],
       "default_tools_approval_mode": "approve",
       "tools": {
         "start_product_search": { "approval_mode": "prompt" },

@@ -26,15 +26,27 @@ The web-search setup changes the root `web_search` setting in your Codex user co
 
 Create a GitHub repository of your choice and upload the CONTENTS of this directory, retaining the hidden `.agents` folder and the hidden `.codex-plugin` and `.mcp.json` files inside the plugin. Do not upload the parent application project. No push has been performed as part of preparing this package.
 
-Replace `YOUR_GITHUB_REPOSITORY_URL` in [the installation prompt](KONTAKT_PARAMETER_INITIAL_PROMPT.md) with the actual published repository URL before sharing it. If you use GitHub's web uploader, confirm that hidden files were included; using Git is safer for this layout.
+The [installation prompt](KONTAKT_PARAMETER_INITIAL_PROMPT.md) uses the published `bagirzadeayaz/parameter-plugin` repository. If you use GitHub's web uploader, confirm that hidden files were included; using Git is safer for this layout.
 
-## Update a Git-backed installation
+## Automatic updates
+
+Before every new product request, the installed launcher checks `bagirzadeayaz/parameter-plugin` on GitHub. Compatible commits on `main` are downloaded automatically and applied to that request, including its current research instructions. No separate updater, account, or additional interface is needed. Research and results remain local; only public update requests are sent to GitHub.
+
+Downloads are pinned to one commit, verified against Git blob hashes, and checked for import errors, category schemas, workflow availability, runtime ABI and the installed tool contract before activation. Each search keeps its selected runtime through completion and after app restarts. Downloads go under the Codex profile at `kontakt-parameter/updates`; version pins go under `kontakt-parameter/runtime-pins`. Result JSON and PDF paths are unchanged.
+
+If GitHub is offline, rate-limited, or supplies an incompatible/broken update, the plugin uses its last working version (or the installed bundled version on first use). Public GitHub API rate limits apply; repeated searches from one shared public IP can exhaust the anonymous limit. Updates do not require Git on the user's device after installation. No branches are pulled or merged, so rewritten repository history is supported.
+
+For routine releases, edit `plugins/kontakt-parameter/workflow.md` for research instructions or the runtime code and push to `main`. The installed `SKILL.md` is deliberately a short stable entry point. Keep `runtime.json` ABI and the existing tool names, descriptions and input schemas compatible. Changes to the launcher, installed skill, registered tool contract, external dependencies or MCP configuration require a normal plugin release/reinstall. New runtime assets outside `mcp/*.mjs`, `schemas.json`, `workflow.md`, `runtime.json`, `package.json`, and `scripts/generate_product_pdf.py` also require an updater change. Run `node --test test/updater.test.mjs` before publishing; CI runs it on Windows and Linux as well. Activation checks are smoke checks, not proof that every behavior in a new commit is correct.
+
+## One-time update for existing users
+
+Older versions do not contain the updater. Install this version once:
 
 ```sh
 codex plugin marketplace upgrade kontakt-internal
 codex plugin add kontakt-parameter@kontakt-internal
 ```
 
-Start a new chat after updating. The maintainer must publish a new plugin version when files change. If a marketplace named `kontakt-internal` already points elsewhere, resolve that conflict before installing; do not silently overwrite it.
+Start a new task after this initial update so the launcher and short entry-point skill load. Compatible future runtime updates apply in the same task on the next product request. Use the same normal update procedure for future launcher/tool-interface changes. The maintainer must publish a new plugin manifest version for those installation updates. If a marketplace named `kontakt-internal` already points elsewhere, resolve that conflict before installing; do not silently overwrite it.
 
 Plugin packaging and marketplace commands follow the [official OpenAI documentation](https://developers.openai.com/plugins/build/plugins).

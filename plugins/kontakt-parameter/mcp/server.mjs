@@ -10,7 +10,7 @@ import { existingProductPdf, generateProductPdf } from './pdf.mjs';
 
 const categorySchema = { type: 'string', enum: ['phone', 'tablet', 'notebook', 'fridge', 'washing_machine'] };
 export const toolDefinitions = [
-  { name: 'begin_parameter_sign_in', description: 'Open the secure Kontakt Parameter browser sign-in and registration window. Passwords go directly to Firebase Authentication and are never exposed to the chat or MCP server.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
+  { name: 'begin_parameter_sign_in', description: 'Open the secure Kontakt Parameter browser sign-in or registration window and wait for it to finish. Keep the current turn active; after successful approved-account sign-in, continue the original product request without asking the user to send it again. Passwords go directly to Firebase Authentication and are never exposed to the chat or MCP server.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'sign_out_parameter_account', description: 'Remove the current local Kontakt Parameter session. This does not delete the employee account.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'parameter_connection_status', description: 'Check Firebase configuration, authentication, project, approved role, and service health without returning credentials.', inputSchema: { type: 'object', properties: {}, additionalProperties: false } },
   { name: 'get_product_schema', description: 'Return the exact ordered application schema for one supported product category.', inputSchema: { type: 'object', required: ['category'], properties: { category: categorySchema }, additionalProperties: false } },
@@ -150,10 +150,32 @@ export function analysisPayload(rawArgs) {
     recoveryReport: args.recovery_report,
   };
 }
-export async function callTool(name, args = {}, client = new FirebaseClient()) {
+export async function callTool(name, args = {}, client = new FirebaseClient(), { startBrowserAuthImpl = startBrowserAuth } = {}) {
   if (name === 'begin_parameter_sign_in') {
-    const flow = await startBrowserAuth({ launch: true });
-    return content({ opened: true, signInUrl: flow.url, expiresAt: flow.expiresAt, message: 'Complete sign-in or registration in the browser, then call parameter_connection_status.' });
+    const flow = await startBrowserAuthImpl({ launch: true });
+    const result = await flow.completion;
+    if (!result?.ok) {
+      return content({
+        opened: true,
+        authenticated: false,
+        expired: result?.expired === true,
+        cancelled: result?.cancelled === true,
+        message: result?.expired
+          ? 'Giriş üçün ayrılmış vaxt bitdi. Giriş pəncərəsini yenidən açın.'
+          : (result?.message || 'Giriş tamamlanmadı.'),
+      });
+    }
+    return content({
+      opened: true,
+      authenticated: result.pending !== true,
+      pending: result.pending === true,
+      email: result.email,
+      role: result.role,
+      message: result.pending
+        ? 'Qeydiyyat tamamlandı. Məhsul axtarışından əvvəl hesab administrator tərəfindən təsdiqlənməlidir.'
+        : 'Giriş tamamlandı. Cari məhsul sorğusuna davam edin.',
+      continueOriginalRequest: result.pending !== true,
+    });
   }
   if (name === 'sign_out_parameter_account') {
     await removeSession();

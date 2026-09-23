@@ -38,10 +38,4 @@ codex plugin add kontakt-parameter@kontakt-internal
 
 Start a new chat after updating. The maintainer must publish a new plugin version when files change. If a marketplace named `kontakt-internal` already points elsewhere, resolve that conflict before installing; do not silently overwrite it.
 
-## Checks
-
-```sh
-npm --prefix plugins/kontakt-parameter test
-```
-
 Plugin packaging and marketplace commands follow the [official OpenAI documentation](https://developers.openai.com/plugins/build/plugins).

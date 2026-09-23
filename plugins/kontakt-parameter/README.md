@@ -12,7 +12,7 @@ From the repository root, run:
 node plugins/kontakt-parameter/scripts/login.mjs
 ```
 
-The command opens the plugin's secure browser window. Choose **Daxil ol** to use an existing Parameter application account or **Qeydiyyat** to register. New accounts enter the application's existing administrator-approval queue with the `pending` role. The same window can be opened directly from chat through the `begin_parameter_sign_in` tool, so users do not need to enter credentials in a terminal or conversation.
+The command opens the plugin's secure browser window. Choose **Daxil ol** to use an existing Parameter application account or **Qeydiyyat** to register. New accounts enter the application's existing administrator-approval queue with the `pending` role. The same window can be opened directly from chat through the `begin_parameter_sign_in` tool. The tool keeps the current Codex turn active for up to five minutes and resumes the original request after successful sign-in, so users do not need to enter credentials in a terminal or repeat the product request.
 
 The browser sends the password directly to Firebase Authentication. ChatGPT, Codex, and the local MCP server never receive it. The plugin stores only the refresh token plus non-secret connection metadata in the current user's Codex profile. The password, OpenRouter key, and service-account credentials are never stored.
 

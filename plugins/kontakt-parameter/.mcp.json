@@ -16,7 +16,7 @@
         "save_product_search_result": { "approval_mode": "prompt" }
       },
       "startup_timeout_sec": 15,
-      "tool_timeout_sec": 150,
+      "tool_timeout_sec": 360,
       "env_vars": ["HOME", "USERPROFILE", "CODEX_HOME"]
     }
   }

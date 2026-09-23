@@ -1,0 +1,14 @@
+{
+  "name": "kontakt-parameter-codex-plugin",
+  "version": "0.1.2+codex.20260923065800",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "login": "node ./scripts/login.mjs",
+    "logout": "node ./scripts/logout.mjs",
+    "enable-web-search": "node ./scripts/enable-web-search.mjs",
+    "worker": "node ./scripts/worker.mjs",
+    "worker:once": "node ./scripts/worker.mjs --once",
+    "test": "node --test ./test/*.test.mjs"
+  }
+}

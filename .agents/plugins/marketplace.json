@@ -1,0 +1,20 @@
+{
+  "name": "kontakt-internal",
+  "interface": {
+    "displayName": "Kontakt Internal"
+  },
+  "plugins": [
+    {
+      "name": "kontakt-parameter",
+      "source": {
+        "source": "local",
+        "path": "./plugins/kontakt-parameter"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

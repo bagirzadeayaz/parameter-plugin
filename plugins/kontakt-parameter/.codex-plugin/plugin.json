@@ -1,0 +1,23 @@
+{
+  "name": "kontakt-parameter",
+  "version": "0.1.2+codex.20260923065800",
+  "description": "Research product parameters with Codex native web search and save them to Kontakt.",
+  "author": {
+    "name": "Kontakt Internal"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Kontakt Parameter",
+    "shortDescription": "Search and verify product parameters.",
+    "longDescription": "Provides customer-friendly product research with simple progress estimates, verified specifications, images, sources, and PDF reports while keeping internal processing details hidden.",
+    "developerName": "Kontakt Internal",
+    "category": "Productivity",
+    "capabilities": [
+      "Product search",
+      "Progress monitoring",
+      "Evidence review"
+    ],
+    "defaultPrompt": "Research exact product parameters with verified images and sources; save the Kontakt result and PDF."
+  },
+  "mcpServers": "./.mcp.json"
+}

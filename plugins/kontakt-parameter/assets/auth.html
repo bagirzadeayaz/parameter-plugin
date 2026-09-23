@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Kontakt Parameter — Hesab</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; color: #191b20; background: #f5f6f8; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 28px 16px; }
+    button, input { font: inherit; }
+    .shell { width: min(460px, 100%); }
+    .card { background: #fff; border: 1px solid #e1e3e8; border-radius: 22px; padding: 34px; box-shadow: 0 18px 55px rgba(22,26,35,.10); }
+    .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 27px; }
+    .logo { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: #e72e53; color: #fff; font-size: 21px; font-weight: 800; }
+    .brand-name { font-size: 17px; font-weight: 760; }
+    .brand-sub { margin-top: 2px; color: #737782; font-size: 13px; }
+    h1 { margin: 0 0 8px; font-size: 25px; letter-spacing: -.35px; }
+    .intro { margin: 0 0 22px; color: #646873; font-size: 15px; line-height: 1.5; }
+    .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; padding: 4px; margin-bottom: 22px; border-radius: 12px; background: #f2f3f5; }
+    .tab { height: 39px; border: 0; border-radius: 9px; color: #696d77; background: transparent; cursor: pointer; font-size: 13px; font-weight: 700; }
+    .tab.active { color: #25272c; background: #fff; box-shadow: 0 2px 8px rgba(22,26,35,.08); }
+    .field { margin-top: 15px; }
+    label { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 650; }
+    input { width: 100%; height: 48px; padding: 0 14px; border: 1px solid #d8dbe1; border-radius: 11px; background: #fff; outline: none; font-size: 15px; }
+    input:focus { border-color: #e72e53; box-shadow: 0 0 0 3px rgba(231,46,83,.12); }
+    input:disabled { background: #f6f7f8; }
+    .submit { width: 100%; height: 49px; margin-top: 21px; border: 0; border-radius: 11px; color: #fff; background: #e72e53; cursor: pointer; font-weight: 760; }
+    .submit:hover { background: #d82449; }
+    .submit:disabled { cursor: wait; opacity: .66; }
+    .error { display: none; margin-top: 16px; padding: 11px 13px; border: 1px solid #f2c8d2; border-radius: 10px; color: #9e1836; background: #fff5f7; font-size: 13px; line-height: 1.4; }
+    .error.visible { display: block; }
+    .secure { display: flex; gap: 10px; margin-top: 23px; padding-top: 19px; border-top: 1px solid #eceef1; color: #747883; font-size: 12px; line-height: 1.45; }
+    .fine { margin: 14px 4px 0; color: #7a7e87; text-align: center; font-size: 11px; line-height: 1.45; }
+    .hidden { display: none; }
+    .success { display: none; text-align: center; padding: 14px 0 4px; }
+    .success.visible { display: block; }
+    .check { width: 62px; height: 62px; display: grid; place-items: center; margin: 0 auto 19px; border-radius: 50%; color: #147d4d; background: #e9f7f0; font-size: 30px; font-weight: 800; }
+    .success p { color: #686c75; line-height: 1.5; }
+    @media (max-width: 520px) { .card { padding: 27px 22px; border-radius: 18px; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="card" aria-live="polite">
+      <div class="brand"><div class="logo">K</div><div><div class="brand-name">Kontakt Parameter</div><div class="brand-sub">ChatGPT və Codex əlavəsi</div></div></div>
+      <div id="auth-view">
+        <h1 id="heading">Hesabınıza daxil olun</h1>
+        <p class="intro" id="intro">Parameter tətbiqində istifadə etdiyiniz əməkdaş hesabı ilə davam edin.</p>
+        <div class="tabs" role="tablist" aria-label="Hesab əməliyyatı">
+          <button class="tab active" id="signin-tab" type="button" role="tab" aria-selected="true">Daxil ol</button>
+          <button class="tab" id="register-tab" type="button" role="tab" aria-selected="false">Qeydiyyat</button>
+        </div>
+        <form id="auth-form">
+          <div class="field hidden" id="name-field"><label for="name">Ad və soyad</label><input id="name" autocomplete="name" placeholder="Nümunə: Əli Məmmədov" /></div>
+          <div class="field"><label for="email">E-poçt</label><input id="email" type="email" autocomplete="email" placeholder="ad.soyad@kontakt.az" required autofocus /></div>
+          <div class="field"><label for="password">Şifrə</label><input id="password" type="password" autocomplete="current-password" placeholder="••••••••" minlength="6" required /></div>
+          <div class="field hidden" id="confirm-field"><label for="confirm">Şifrəni təsdiqləyin</label><input id="confirm" type="password" autocomplete="new-password" placeholder="••••••••" minlength="6" /></div>
+          <div id="error" class="error" role="alert"></div>
+          <button class="submit" id="submit" type="submit">Daxil ol</button>
+        </form>
+        <div class="secure"><span aria-hidden="true">🔒</span><span>Şifrəniz birbaşa Firebase Authentication-a göndərilir. ChatGPT, Codex və plugin şifrənizi görmür və saxlamır.</span></div>
+      </div>
+      <div id="success-view" class="success">
+        <div class="check" aria-hidden="true">✓</div>
+        <h1 id="success-heading">Giriş tamamlandı</h1>
+        <p id="success-message">Bu pəncərəni bağlayıb söhbətə qayıda bilərsiniz.</p>
+      </div>
+    </section>
+    <p class="fine">Plugin hesabınızı yalnız icazələri yoxlamaq, axtarışları saxlamaq və sizə aid nəticələri göstərmək üçün istifadə edir.</p>
+  </main>
+  <script nonce="__NONCE__">
+    (() => {
+      const CONFIG = __CONFIG__;
+      const STATE = __STATE__;
+      let mode = 'signin';
+      const byId = id => document.getElementById(id);
+      const form = byId('auth-form');
+      const submit = byId('submit');
+      const errorBox = byId('error');
+
+      function setMode(next) {
+        mode = next;
+        const register = mode === 'register';
+        byId('signin-tab').classList.toggle('active', !register);
+        byId('register-tab').classList.toggle('active', register);
+        byId('signin-tab').setAttribute('aria-selected', String(!register));
+        byId('register-tab').setAttribute('aria-selected', String(register));
+        byId('name-field').classList.toggle('hidden', !register);
+        byId('confirm-field').classList.toggle('hidden', !register);
+        byId('name').required = register;
+        byId('confirm').required = register;
+        byId('password').autocomplete = register ? 'new-password' : 'current-password';
+        byId('heading').textContent = register ? 'Yeni hesab yaradın' : 'Hesabınıza daxil olun';
+        byId('intro').textContent = register ? 'Yeni hesab administrator təsdiqindən sonra istifadəyə açılacaq.' : 'Parameter tətbiqində istifadə etdiyiniz əməkdaş hesabı ilə davam edin.';
+        submit.textContent = register ? 'Qeydiyyatdan keç' : 'Daxil ol';
+        errorBox.classList.remove('visible');
+      }
+
+      function friendlyError(value) {
+        const code = String(value || 'UNKNOWN');
+        if (code.includes('EMAIL_EXISTS')) return 'Bu e-poçt ilə hesab artıq mövcuddur.';
+        if (code.includes('INVALID_LOGIN_CREDENTIALS') || code.includes('EMAIL_NOT_FOUND') || code.includes('INVALID_PASSWORD')) return 'E-poçt və ya şifrə yanlışdır.';
+        if (code.includes('WEAK_PASSWORD')) return 'Şifrə ən azı 6 simvoldan ibarət olmalıdır.';
+        if (code.includes('INVALID_EMAIL')) return 'Düzgün e-poçt ünvanı daxil edin.';
+        if (code.includes('TOO_MANY_ATTEMPTS')) return 'Çox sayda cəhd edildi. Bir qədər sonra yenidən yoxlayın.';
+        if (code.includes('NETWORK')) return 'Şəbəkə bağlantısını yoxlayın və yenidən cəhd edin.';
+        return 'Giriş tamamlanmadı. Məlumatları yoxlayıb yenidən cəhd edin.';
+      }
+
+      async function firebaseAuth(email, password) {
+        const action = mode === 'register' ? 'signUp' : 'signInWithPassword';
+        const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:${action}?key=${encodeURIComponent(CONFIG.apiKey)}`, {
+          method: 'POST', headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ email, password, returnSecureToken: true })
+        });
+        const body = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(body?.error?.message || `HTTP ${response.status}`);
+        return body;
+      }
+
+      byId('signin-tab').addEventListener('click', () => setMode('signin'));
+      byId('register-tab').addEventListener('click', () => setMode('register'));
+      form.addEventListener('submit', async event => {
+        event.preventDefault(); errorBox.classList.remove('visible');
+        const email = byId('email').value.trim();
+        const password = byId('password').value;
+        const displayName = byId('name').value.trim();
+        if (mode === 'register' && password !== byId('confirm').value) {
+          errorBox.textContent = 'Şifrələr uyğun gəlmir.'; errorBox.classList.add('visible'); return;
+        }
+        submit.disabled = true; submit.textContent = 'Gözləyin…';
+        try {
+          const auth = await firebaseAuth(email, password);
+          byId('password').value = ''; byId('confirm').value = '';
+          const response = await fetch('/complete', {
+            method: 'POST', headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({ state: STATE, mode, displayName, idToken: auth.idToken, refreshToken: auth.refreshToken, localId: auth.localId, email: auth.email || email })
+          });
+          const result = await response.json().catch(() => ({}));
+          if (!response.ok || !result.ok) throw new Error(result.message || `HTTP ${response.status}`);
+          byId('auth-view').classList.add('hidden'); byId('success-view').classList.add('visible');
+          byId('success-heading').textContent = mode === 'register' ? 'Hesab yaradıldı' : 'Giriş tamamlandı';
+          byId('success-message').textContent = result.pending ? 'Hesab administrator təsdiqini gözləyir. Bu pəncərəni bağlaya bilərsiniz.' : 'Kontakt Parameter istifadəyə hazırdır. Bu pəncərəni bağlayıb söhbətə qayıda bilərsiniz.';
+        } catch (error) {
+          errorBox.textContent = friendlyError(error.message); errorBox.classList.add('visible');
+          submit.disabled = false; submit.textContent = mode === 'register' ? 'Qeydiyyatdan keç' : 'Daxil ol';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

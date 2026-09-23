@@ -1,0 +1,7 @@
+interface:
+  display_name: "Kontakt Parameter"
+  short_description: "Research and save product parameters"
+  default_prompt: "Use $product-search to research this exact product and save its verified Kontakt parameters."
+
+policy:
+  allow_implicit_invocation: true

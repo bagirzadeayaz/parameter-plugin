@@ -5,6 +5,14 @@ description: Use Kontakt Parameter whenever a user submits a bare product name o
 
 # Kontakt product search
 
+## Independent product searches
+
+Treat each new product search as an independent evidence task. Use the current product request, its confirmed variant choices and explicit applicable user constraints, the workflow returned for this request, and the task's returned schema. Do not carry over product facts, model or market assumptions, source claims, image observations, completion claims, or formatting examples from earlier searches or unrelated chat discussion. Prior URLs may be discovery leads only: reopen the relevant pages and inspect image pixels for this search before using them as evidence.
+
+Preserve continuity within the same search: retain its product identity, user corrections, pending choices, confirmed selections, task ID, runtime ID, and evidence already verified for that search. A colour/storage answer, retry, or follow-up is not a new search. For questions about an existing saved result, retrieve that result and its recorded evidence rather than reconstructing it from chat memory; distinguish recorded evidence from newly verified facts. Do not rerun a saved search without the approval required below.
+
+This is an evidence-scoping rule, not context deletion or a replacement for higher-priority instructions. It must not discard relevant user instructions, authorize extra actions, or claim that the chat context has been cleared.
+
 ## Non-terminating workflow contract
 
 A product request is one transaction: **start → research → recover → validate → save → generate PDF → render**. This contract applies in every new chat and does not depend on earlier conversation context.

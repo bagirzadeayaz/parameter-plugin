@@ -1,6 +1,6 @@
 # Kontakt Parameter — standalone Codex plugin
 
-This project contains only the Kontakt Parameter plugin and its Codex marketplace catalog. It does not contain or connect to the web app, backend, Firebase, another database, account sessions, private API keys, or service-account credentials. Results and PDFs are saved locally on the user's device.
+This project contains only the Kontakt Parameter plugin and its Codex marketplace catalog. It contains no backend deployment code or database credentials. Future searches are submitted anonymously to the existing web platform; local backups and PDFs remain on the user's device. Historical local searches are not uploaded.
 
 ## Before using it
 

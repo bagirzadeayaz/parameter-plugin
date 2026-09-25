@@ -215,7 +215,6 @@ def build_pdf(data: dict, output_path: str) -> None:
         Spacer(1, 4 * mm),
         Paragraph("MƏHSUL PARAMETRLƏRİ", styles["eyebrow"]),
         Paragraph(_text(data.get("productName") or "Məhsul"), styles["title"]),
-        Paragraph("— təsdiqlənməyib", styles["small"]),
         Spacer(1, 2 * mm),
         _summary_cards(data, styles, doc.width),
         Spacer(1, 6 * mm),

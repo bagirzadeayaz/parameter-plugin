@@ -30,6 +30,9 @@ test('chat and PDF share Russian rows without AZ fallback or doubled evidence', 
   const app = shapeTask({ category:'tablet', scrapedParams:{ 'Şəbəkə':'Yox', 'Daxili yaddaş':'256 GB' }, scrapedParamsRU:{ 'Şəbəkə':'Нет','Daxili yaddaş':'256 ГБ' }, scrapedData:{results:[{url:'https://example.com/spec',parameters:{'Şəbəkə':'Yox'}}]} }, 'app');
   assert.equal(app.displayParamsRU['Şəbəkə'],'Нет');
   assert.match(app.parameterTableMarkdown,/AZ \| RU/);
+  assert.equal(app.parameterTableMarkdown.split('\n')[0], '| № | Parametr | AZ | RU | Mənbə |');
+  assert.match(app.parameterTableMarkdown, /Daxili yaddaş<br>Внутренняя память/);
+  assert.match(app.parameterTableMarkdown, /256 GB \| 256 ГБ/);
   assert.deepEqual(buildPdfData(app,'image.png').parameters,app.parameterRows);
   assert.equal(app.parameterRows.find(r=>r.name==='Şəbəkə').sources.length,1);
 });

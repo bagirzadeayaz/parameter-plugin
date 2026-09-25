@@ -17,7 +17,7 @@
       "Progress monitoring",
       "Evidence review"
     ],
-    "defaultPrompt": "Məhsul parametrlərini mənbələr və şəkillə təsdiqlə; cavabı və PDF-i Azərbaycan və rus dillərində yığcam cədvəldə hazırla."
+    "defaultPrompt": "Məhsul parametrlərini mənbələr və şəkillə təsdiqlə. Cavab və PDF-də yalnız parametr adlarını və dəyərlərini Azərbaycan və rus dillərində ver; digər mətnlər Azərbaycan dilində olsun."
   },
   "mcpServers": "./.mcp.json"
 }

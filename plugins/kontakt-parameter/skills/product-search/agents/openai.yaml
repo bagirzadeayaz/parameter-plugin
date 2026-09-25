@@ -1,7 +1,7 @@
 interface:
   display_name: "Kontakt Parameter"
   short_description: "Məhsul parametrlərini araşdırır və saxlayır"
-  default_prompt: "Bu məhsulun parametrlərini araşdır, təsdiqlənmiş nəticəni Kontakt-da saxla və cavabı Azərbaycan və rus dillərində yığcam cədvəldə ver."
+  default_prompt: "$product-search ilə məhsulu araşdır və saxla. Yalnız parametr adları və dəyərləri Azərbaycan və rus dillərində, digər mətnlər Azərbaycan dilində olsun."
 
 policy:
   allow_implicit_invocation: true

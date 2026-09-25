@@ -84,8 +84,8 @@ export function shapeTask(task, view = 'summary', fields = []) {
       parameterRows: buildParameterRows({ ...task, displayParams, displayParamsRU }),
       parameterTableMarkdown: renderParameterTable(buildParameterRows({ ...task, displayParams, displayParamsRU })),
       presentation: {
-        columns: ['№', 'Parametr / Параметр', 'AZ', 'RU', 'Mənbə / Источник'],
-        instructions: 'Respond in both Azerbaijani and Russian. Copy parameterTableMarkdown verbatim with paired labels and AZ/RU values sharing one evidence column. Show the product name, then a compact category/count/date line, PDF download, product image, and complete parameterRows table. For each found parameter link its row.sources website labels in the separate Mənbə column. Preserve values verbatim. Never attach an unrelated source. Use — for unresolved rows; for older filled rows without saved proof show Mənbə göstərilməyib. Keep task IDs and internal status details out of the opening.',
+        columns: ['№', 'Parametr', 'AZ', 'RU', 'Mənbə'],
+        instructions: 'Write surrounding text in Azerbaijani only; translate only parameter names and values into Russian. Copy parameterTableMarkdown verbatim with paired labels and AZ/RU values sharing one evidence column. Show the product name, then a compact category/count/date line, PDF download, product image, and complete parameterRows table. For each found parameter link its row.sources website labels in the separate Mənbə column. Preserve values verbatim. Never attach an unrelated source. Use — for unresolved rows; for older filled rows without saved proof show Mənbə göstərilməyib. Keep task IDs and internal status details out of the opening.',
       },
       canonicalSpecification: task.canonicalSpecification || null,
       confidence,

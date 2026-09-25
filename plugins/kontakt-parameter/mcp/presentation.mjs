@@ -10,9 +10,9 @@ function publicLink(value) {
 
 export function renderParameterTable(rows) {
   const cell = value => String(value ?? '—').replace(/\|/g, '\\|').replace(/\r?\n/g, '<br>');
-  return ['| № | Parametr / Параметр | AZ | RU | Mənbə / Источник |', '|---:|---|---|---|---|', ...rows.map((row, index) => {
+  return ['| № | Parametr | AZ | RU | Mənbə |', '|---:|---|---|---|---|', ...rows.map((row, index) => {
     const proof = row.sources.map(source => `[${cell(source.label)}](<${source.url.replace(/>/g, '%3E').replace(/</g, '%3C')}>)`).join(' · ')
-      || (row.value === '—' ? '—' : 'Mənbə yoxdur / Нет источника');
+      || (row.value === '—' ? '—' : 'Mənbə göstərilməyib');
     return `| ${index + 1} | ${cell(row.name)}<br>${cell(row.nameRu)} | ${cell(row.value)} | ${cell(row.valueRu)} | ${proof} |`;
   })].join('\n');
 }

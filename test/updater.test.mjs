@@ -28,6 +28,12 @@ async function fixture(t) {
     }
   }
   await visit();
+  // Updater tests must never submit synthetic searches to the live platform.
+  files.set('mcp/platform.mjs', Buffer.from(`
+    export async function submitPlatform() {
+      return { taskId: 'updater-fixture', stored: true, status: 'in_progress' };
+    }
+  `));
   const state = { head: A, offline: false, files, broken: null, calls: [] };
   const fetcher = async url => {
     state.calls.push(url);
@@ -60,7 +66,10 @@ test('same launcher uses new code and instructions, while existing searches reta
   assert.ok(taskId);
   state.head = B;
   state.files.set('workflow.md', Buffer.from('Workflow B'));
-  state.files.set('mcp/local.mjs', Buffer.from(state.files.get('mcp/local.mjs').toString().replace("storage: 'device'", "storage: 'updated-engine'")));
+  const originalLocal = state.files.get('mcp/local.mjs').toString();
+  const updatedLocal = originalLocal.replace(/storage: '[^']*'/, "storage: 'updated-engine'");
+  assert.notEqual(updatedLocal, originalLocal, 'fixture must change the runtime storage marker');
+  state.files.set('mcp/local.mjs', Buffer.from(updatedLocal));
   const b = (await call('prepare_product_search')).result.structuredContent;
   assert.equal(b.runtime_id, B);
   assert.equal(b.workflow, 'Workflow B');

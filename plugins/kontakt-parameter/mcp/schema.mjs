@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { normalizeRussianValues } from './bilingual.mjs';
 
 const schemas = JSON.parse(readFileSync(new URL('../schemas.json', import.meta.url), 'utf8'));
 
@@ -150,7 +151,7 @@ function fieldsWithRules(category, fields) {
     if (!normalization) throw new Error(`Missing Kontakt normalization rule for ${category}:${field.key}`);
     return {
       ...field,
-      normalization: { ...normalization, unresolvedValue: '—' },
+      normalization: { ...normalization, unresolvedValue: '—', russian: { label: field.labelRu, example: normalizeRussianValues({ [field.key]: normalization.example }, {}, category)[field.key], rule: 'Translate the same fact into compact Russian catalogue wording. Preserve all numbers, variants and evidence. Есть/Нет; ГБ, ТБ, ГГц, МГц, Гц, мАч, Вт, Вт*ч, г, кг, мм, см, л, дБ, об/мин, кадр/с. International model/technology names remain unchanged. Unresolved: — in both languages.' } },
       imageAnalysis: visualRule(category, field.key),
     };
   });

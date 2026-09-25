@@ -176,7 +176,9 @@ export async function callTool(name, args = {}, client = new LocalClient()) {
   }
   if (name === 'generate_product_search_pdf') {
     const result = shapeTask(await client.getTask(args.task_id), 'app');
-    const pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result));
+    let pdfReport = await existingProductPdf(result).catch(() => null);
+    if (!pdfReport) pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result));
+    if (typeof client.uploadPdf === 'function') pdfReport = await client.uploadPdf(args.task_id, pdfReport);
     return content({ taskId: args.task_id, pdfReport }, pdfResource(pdfReport, result.productName));
   }
   if (name === 'wait_product_search') return content(await client.wait(args.task_id, args.after_heartbeat || 0, args.timeout_seconds || 120));
@@ -186,10 +188,11 @@ export async function callTool(name, args = {}, client = new LocalClient()) {
     const saved = await client.saveCodexResult(args.task_id, analysisPayload(args));
     const result = shapeTask(await client.getTask(args.task_id), 'app');
     let pdfReport;
-    try { pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result)); }
+    try { pdfReport = await existingProductPdf(result).catch(() => null); if (!pdfReport) pdfReport = await (typeof client.generateProductPdf === 'function' ? client.generateProductPdf(result) : generateProductPdf(result)); }
     catch (error) {
       pdfReport = { generated: false, error: redactError(error), retryTool: 'generate_product_search_pdf', taskId: args.task_id };
     }
+    if (pdfReport.generated && typeof client.uploadPdf === 'function') pdfReport = await client.uploadPdf(args.task_id, pdfReport);
     const response = { ...saved, presentationRequired: true, presentationFormat: 'complete_parameter_table_with_pdf', pdfRequired: true, pdfReport, result };
     return content(response, pdfResource(pdfReport, result.productName));
   }

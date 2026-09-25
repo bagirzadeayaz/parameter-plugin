@@ -76,16 +76,16 @@ def _source_links(item: dict) -> str:
             continue
         label = source.get("label") or parsed.hostname.removeprefix("www.")
         links.append(f'<link href="{html.escape(url, quote=True)}" color="#B80510">{_text(label)}</link>')
-    return '<br/>'.join(links) or ("—" if item.get("value") in (None, "", "—") else "Mənbə göstərilməyib")
+    return '<br/>'.join(links) or ("—" if item.get("value") in (None, "", "—") else "Mənbə yoxdur / Нет источника")
 
 
 def _category_label(value: str) -> str:
     return {
-        "phone": "Telefon",
-        "tablet": "Planşet",
-        "notebook": "Noutbuk",
-        "fridge": "Soyuducu",
-        "washing_machine": "Paltaryuyan",
+        "phone": "Telefon / Телефон",
+        "tablet": "Planşet / Планшет",
+        "notebook": "Noutbuk / Ноутбук",
+        "fridge": "Soyuducu / Холодильник",
+        "washing_machine": "Paltaryuyan / Стиральная машина",
     }.get(value, value or "Məhsul")
 
 
@@ -117,13 +117,13 @@ class KontaktPdfTemplate(BaseDocTemplate):
         canvas.drawString(self.leftMargin, height - 14 * mm, "KONTAKT")
         canvas.setFont(self.regular_font, 8)
         canvas.setFillColor(MUTED)
-        canvas.drawRightString(width - self.rightMargin, height - 14 * mm, "Məhsul məlumat kartı")
+        canvas.drawRightString(width - self.rightMargin, height - 14 * mm, "Məhsul kartı / Карточка товара")
         canvas.setStrokeColor(LINE)
         canvas.line(self.leftMargin, 14 * mm, width - self.rightMargin, 14 * mm)
         canvas.setFont(self.regular_font, 8)
         canvas.setFillColor(MUTED)
-        canvas.drawString(self.leftMargin, 9 * mm, "Kontakt Parameter • Yoxlanmış məhsul məlumatı")
-        canvas.drawRightString(width - self.rightMargin, 9 * mm, f"Səhifə {doc.page}")
+        canvas.drawString(self.leftMargin, 9 * mm, "Kontakt Parameter • AZ / RU")
+        canvas.drawRightString(width - self.rightMargin, 9 * mm, f"Səhifə / Страница {doc.page}")
         canvas.restoreState()
 
 
@@ -149,10 +149,10 @@ def _summary_cards(data: dict, styles: dict, available_width: float):
     required = int(data.get("requiredFields") or len(data.get("parameters") or []))
     pct = int(round(float(data.get("coveragePercent") or (found / required * 100 if required else 0))))
     cards = [
-        ("Kateqoriya", _category_label(str(data.get("category") or ""))),
-        ("Əhatə", f"{found}/{required} • {pct}%"),
-        ("Mənbə sayı", str(data.get("sourceCount") or 0)),
-        ("Axtarış tarixi", _date_label(data.get("updatedAt"))),
+        ("Kateqoriya / Категория", _category_label(str(data.get("category") or ""))),
+        ("Əhatə / Заполнено", f"{found}/{required} • {pct}%"),
+        ("Mənbələr / Источники", str(data.get("sourceCount") or 0)),
+        ("Tarix / Дата", _date_label(data.get("updatedAt"))),
     ]
     cells = []
     for label, value in cards:
@@ -213,14 +213,16 @@ def build_pdf(data: dict, output_path: str) -> None:
 
     story = [
         Spacer(1, 4 * mm),
-        Paragraph("MƏHSUL PARAMETRLƏRİ", styles["eyebrow"]),
+        Paragraph("MƏHSUL PARAMETRLƏRİ / ХАРАКТЕРИСТИКИ", styles["eyebrow"]),
         Paragraph(_text(data.get("productName") or "Məhsul"), styles["title"]),
+        Paragraph("AZ / RU • — təsdiqlənməyib / не подтверждено", styles["small"]),
+        Spacer(1, 2 * mm),
         _summary_cards(data, styles, doc.width),
         Spacer(1, 6 * mm),
     ]
 
-    hero = _product_image(str(data.get("imagePath") or ""), doc.width * 0.64, 72 * mm)
-    hero_box = Table([[hero]], colWidths=[doc.width], rowHeights=[78 * mm])
+    hero = _product_image(str(data.get("imagePath") or ""), doc.width * 0.64, 42 * mm)
+    hero_box = Table([[hero]], colWidths=[doc.width], rowHeights=[48 * mm])
     hero_box.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), WHITE),
         ("BOX", (0, 0), (-1, -1), 0.7, LINE),
@@ -231,19 +233,19 @@ def build_pdf(data: dict, output_path: str) -> None:
         ("TOPPADDING", (0, 0), (-1, -1), 4 * mm),
         ("BOTTOMPADDING", (0, 0), (-1, -1), 4 * mm),
     ]))
-    story.extend([hero_box, Paragraph("Parametrlər", styles["section"])])
+    story.extend([hero_box, Paragraph("Parametrlər / Характеристики", styles["section"])])
 
     table_rows = [[
         Paragraph("№", styles["table_head"]),
-        Paragraph("Parametr", styles["table_head"]),
-        Paragraph("Dəyər", styles["table_head"]),
-        Paragraph("Mənbə", styles["table_head"]),
+        Paragraph("Parametr / Параметр", styles["table_head"]),
+        Paragraph("AZ / RU", styles["table_head"]),
+        Paragraph("Mənbə / Источник", styles["table_head"]),
     ]]
     for index, item in enumerate(data.get("parameters") or [], start=1):
         table_rows.append([
             Paragraph(str(index), styles["table_cell"]),
-            Paragraph(_text(item.get("name")), styles["table_key"]),
-            Paragraph(_text(item.get("value")), styles["table_cell"]),
+            Paragraph(_text(item.get("name")) + '<br/><font color="#667085">' + _text(item.get("nameRu")) + '</font>', styles["table_key"]),
+            Paragraph('<font color="#667085">AZ</font>  ' + _text(item.get("value")) + '<br/><font color="#667085">RU</font>  ' + _text(item.get("valueRu")), styles["table_cell"]),
             Paragraph(_source_links(item), styles["source_cell"]),
         ])
     parameter_table = Table(table_rows, colWidths=[11 * mm, 57 * mm, 63 * mm, doc.width - 131 * mm], repeatRows=1, hAlign="LEFT")
@@ -253,8 +255,8 @@ def build_pdf(data: dict, output_path: str) -> None:
         ("GRID", (0, 0), (-1, -1), 0.45, LINE),
         ("LEFTPADDING", (0, 0), (-1, -1), 3 * mm),
         ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
-        ("TOPPADDING", (0, 0), (-1, -1), 2.2 * mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.2 * mm),
+        ("TOPPADDING", (0, 0), (-1, -1), 1.0 * mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 1.0 * mm),
         ("LEFTPADDING", (0, 0), (0, -1), 1.5 * mm),
         ("RIGHTPADDING", (0, 0), (0, -1), 1.5 * mm),
     ]
@@ -266,7 +268,7 @@ def build_pdf(data: dict, output_path: str) -> None:
 
     sources = data.get("sources") or []
     if sources:
-        source_rows = [[Paragraph("Mənbə", styles["table_head"]), Paragraph("Əhatə", styles["table_head"])]]
+        source_rows = [[Paragraph("Mənbə / Источник", styles["table_head"]), Paragraph("Əhatə / Заполнено", styles["table_head"])]]
         required = int(data.get("requiredFields") or len(data.get("parameters") or []))
         for source in sources:
             title = source.get("title") or source.get("url") or "Mənbə"
@@ -281,19 +283,11 @@ def build_pdf(data: dict, output_path: str) -> None:
             ("VALIGN", (0, 0), (-1, -1), "TOP"),
             ("LEFTPADDING", (0, 0), (-1, -1), 3 * mm),
             ("RIGHTPADDING", (0, 0), (-1, -1), 3 * mm),
-            ("TOPPADDING", (0, 0), (-1, -1), 2.2 * mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2.2 * mm),
+            ("TOPPADDING", (0, 0), (-1, -1), 1.4 * mm),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 1.4 * mm),
         ]))
-        story.append(KeepTogether([Paragraph("Mənbələr", styles["section"]), source_table]))
+        story.append(KeepTogether([Paragraph("Mənbələr / Источники", styles["section"]), source_table]))
 
-    story.extend([
-        Spacer(1, 5 * mm),
-        KeepTogether([
-            Paragraph("Qeyd", styles["table_key"]),
-            Paragraph("Bu sənəd Kontakt Parameter nəticəsində saxlanılmış dəyərlərdən avtomatik yaradılıb. Təsdiqlənməyən sahələr “—” kimi göstərilir.", styles["small"]),
-            Paragraph(f"Tapşırıq ID-si: {_text(data.get('taskId'))}", styles["small"]),
-        ]),
-    ])
     doc.build(story)
 
 

@@ -123,7 +123,7 @@ export async function generateProductPdf(result, {
       fileName: basename(destination),
       mimeType: 'application/pdf',
       bytes,
-      template: 'kontakt-product-report-v2',
+      template: 'kontakt-product-report-v3-bilingual',
       pythonRuntime: basename(python),
     };
   } finally {
@@ -134,5 +134,5 @@ export async function generateProductPdf(result, {
 export async function existingProductPdf(result, { outputRoot = defaultOutputRoot() } = {}) {
   const path = (await canAccess(outputPathFor(result, outputRoot))) ? outputPathFor(result, outputRoot) : legacyOutputPathFor(result, outputRoot);
   if (!(await canAccess(path))) return null;
-  return { generated: true, path, directoryPath: outputRoot, fileUri: pathToFileURL(path).href, fileName: basename(path), mimeType: 'application/pdf', template: 'kontakt-product-report-v2' };
+  return { generated: true, path, directoryPath: outputRoot, fileUri: pathToFileURL(path).href, fileName: basename(path), mimeType: 'application/pdf', template: 'kontakt-product-report-saved' };
 }

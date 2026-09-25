@@ -1,3 +1,4 @@
+import { normalizeRussianValues } from './bilingual.mjs';
 import { getCategorySchema } from './schema.mjs';
 
 function publicLink(value) {
@@ -9,16 +10,18 @@ function publicLink(value) {
 
 export function renderParameterTable(rows) {
   const cell = value => String(value ?? '—').replace(/\|/g, '\\|').replace(/\r?\n/g, '<br>');
-  return ['| № | Parametr | Dəyər | Mənbə |', '|---:|---|---|---|', ...rows.map((row, index) => {
+  return ['| № | Parametr / Параметр | AZ | RU | Mənbə / Источник |', '|---:|---|---|---|---|', ...rows.map((row, index) => {
     const proof = row.sources.map(source => `[${cell(source.label)}](<${source.url.replace(/>/g, '%3E').replace(/</g, '%3C')}>)`).join(' · ')
-      || (row.value === '—' ? '—' : 'Mənbə göstərilməyib');
-    return `| ${index + 1} | ${cell(row.name)} | ${cell(row.value)} | ${proof} |`;
+      || (row.value === '—' ? '—' : 'Mənbə yoxdur / Нет источника');
+    return `| ${index + 1} | ${cell(row.name)}<br>${cell(row.nameRu)} | ${cell(row.value)} | ${cell(row.valueRu)} | ${proof} |`;
   })].join('\n');
 }
 
 export function buildParameterRows(result) {
   const values = result?.displayParams || {};
-  const schema = getCategorySchema(result?.category).fields.map(field => field.key);
+  const fields = getCategorySchema(result?.category).fields;
+  const schema = fields.map(field => field.key);
+  const ru = normalizeRussianValues(values, result?.displayParamsRU || result?.scrapedParamsRU, result?.category);
   const keys = [...schema.filter(key => Object.hasOwn(values, key)), ...Object.keys(values).filter(key => !schema.includes(key))];
   const evidenceRows = result?.scrapedData?.results || [];
   return keys.map(name => {
@@ -41,6 +44,6 @@ export function buildParameterRows(result) {
         }
       }
     }
-    return { name, value, sources: [...links.values()] };
+    return { name, nameRu: fields.find(field => field.key === name)?.labelRu || name, value, valueRu: ru[name] || '—', sources: [...links.values()] };
   });
 }

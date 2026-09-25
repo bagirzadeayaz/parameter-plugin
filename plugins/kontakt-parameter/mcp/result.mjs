@@ -1,3 +1,4 @@
+import { normalizeRussianValues } from './bilingual.mjs';
 import { buildParameterRows, renderParameterTable } from './presentation.mjs';
 
 const progressCopy = {
@@ -65,7 +66,7 @@ export function shapeTask(task, view = 'summary', fields = []) {
     const meaningful = value => Boolean(String(value ?? '').trim() && !['null', '—', '-', 'undefined'].includes(String(value).trim().toLowerCase()));
     const choose = (...values) => values.find(meaningful) ?? '—';
     const displayParams = Object.fromEntries(keys.map(key => [key, choose(task.finalParams?.[key], task.scrapedParams?.[key], task.brandManagerParams?.[key], task.canonicalSpecification?.values?.[key])]));
-    const displayParamsRU = Object.fromEntries(keys.map(key => [key, choose(task.finalParams?.[key], task.scrapedParamsRU?.[key], task.scrapedParams?.[key], task.brandManagerParams?.[key], task.canonicalSpecification?.values?.[key])]));
+    const displayParamsRU = normalizeRussianValues(displayParams, task.scrapedParamsRU, task.category);
     return {
       id: task.id,
       productName: task.productName,
@@ -80,11 +81,11 @@ export function shapeTask(task, view = 'summary', fields = []) {
       brandManagerParams: filterMap(task.brandManagerParams),
       displayParams,
       displayParamsRU,
-      parameterRows: buildParameterRows({ ...task, displayParams }),
-      parameterTableMarkdown: renderParameterTable(buildParameterRows({ ...task, displayParams })),
+      parameterRows: buildParameterRows({ ...task, displayParams, displayParamsRU }),
+      parameterTableMarkdown: renderParameterTable(buildParameterRows({ ...task, displayParams, displayParamsRU })),
       presentation: {
-        columns: ['№', 'Parametr', 'Dəyər', 'Mənbə'],
-        instructions: 'Show the product name, then a compact category/count/date line, PDF download, product image, and complete parameterRows table. For each found parameter link its row.sources website labels in the separate Mənbə column. Preserve values verbatim. Never attach an unrelated source. Use — for unresolved rows; for older filled rows without saved proof show Mənbə göstərilməyib. Keep task IDs and internal status details out of the opening.',
+        columns: ['№', 'Parametr / Параметр', 'AZ', 'RU', 'Mənbə / Источник'],
+        instructions: 'Respond in both Azerbaijani and Russian. Copy parameterTableMarkdown verbatim with paired labels and AZ/RU values sharing one evidence column. Show the product name, then a compact category/count/date line, PDF download, product image, and complete parameterRows table. For each found parameter link its row.sources website labels in the separate Mənbə column. Preserve values verbatim. Never attach an unrelated source. Use — for unresolved rows; for older filled rows without saved proof show Mənbə göstərilməyib. Keep task IDs and internal status details out of the opening.',
       },
       canonicalSpecification: task.canonicalSpecification || null,
       confidence,
@@ -97,7 +98,7 @@ export function shapeTask(task, view = 'summary', fields = []) {
       },
     };
   }
-  if (view === 'results') return { ...base, normalizedParameters: results, confidence, sources, productImages };
+  if (view === 'results') return { ...base, normalizedParameters: results, normalizedParametersRu: normalizeRussianValues(results, task.scrapedParamsRU, task.category), confidence, sources, productImages };
   if (view === 'evidence') return { ...base, sources, evidence };
   return { ...base, normalizedParameters: results, confidence, sources, productImages, evidence, unresolvedFields: task.scrapedData?.unresolvedFields || [], canonicalSpecification: task.canonicalSpecification || null };
 }

@@ -16,4 +16,4 @@ Verify the installed version and anonymous platform-submission configuration, ac
 
 Verify that the installed MCP entry point is `mcp/bootstrap.mjs` and that its tools include `prepare_product_search`. Explain that this initial installation needs a new task once; afterward compatible runtime updates are downloaded automatically before new searches in the same task. A failed update falls back to the last working version. Launcher and registered tool-interface changes may still require a normal update.
 
-Keep this installation conversation in English. The plugin's product-search messages and reports must be in Azerbaijani. Keep product names, website names, links, and exact parameter values intact.
+Keep this installation conversation in English. The plugin's product-search messages and reports must include both Azerbaijani and Russian in a compact paired table. Keep product names, website names, links, and exact parameter values intact.

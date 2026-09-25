@@ -17,7 +17,7 @@
       "Progress monitoring",
       "Evidence review"
     ],
-    "defaultPrompt": "M\u0259hsul parametrl\u0259rini m\u0259nb\u0259l\u0259r v\u0259 \u015f\u0259kill\u0259 t\u0259sdiql\u0259, Kontakt n\u0259tic\u0259sini v\u0259 PDF-i saxla; yaln\u0131z Az\u0259rbaycan dilind\u0259 cavab ver."
+    "defaultPrompt": "Məhsul parametrlərini mənbələr və şəkillə təsdiqlə; cavabı və PDF-i Azərbaycan və rus dillərində yığcam cədvəldə hazırla."
   },
   "mcpServers": "./.mcp.json"
 }

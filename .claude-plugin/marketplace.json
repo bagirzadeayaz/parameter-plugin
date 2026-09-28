@@ -1,0 +1,9 @@
+{
+  "name": "kontakt-internal",
+  "owner": { "name": "Kontakt" },
+  "plugins": [{
+    "name": "kontakt-parameter",
+    "source": "./claude/kontakt-parameter",
+    "description": "Evidence-backed product specifications with AZ/RU parameters and PDF reports."
+  }]
+}

@@ -1,0 +1,1786 @@
+{
+  "phone": [
+    {
+      "key": "Brend",
+      "labelAz": "Brend",
+      "labelRu": "Бренд",
+      "synonyms": [
+        "Brend",
+        "Brand",
+        "İstehsalçı",
+        "Бренд"
+      ]
+    },
+    {
+      "key": "Daxili yaddaş",
+      "labelAz": "Daxili yaddaş",
+      "labelRu": "Внутренняя память",
+      "synonyms": [
+        "Internal storage",
+        "Storage",
+        "ROM",
+        "Yaddaş",
+        "Внутренняя память"
+      ]
+    },
+    {
+      "key": "Operativ yaddaş",
+      "labelAz": "Operativ yaddaş",
+      "labelRu": "Оперативная память",
+      "synonyms": [
+        "RAM",
+        "Operativ yaddaş",
+        "Оперативная память"
+      ]
+    },
+    {
+      "key": "Əsas kamera",
+      "labelAz": "Əsas kamera",
+      "labelRu": "Камера",
+      "synonyms": [
+        "Rear camera",
+        "Main Camera",
+        "Camera",
+        "Камера"
+      ]
+    },
+    {
+      "key": "Ön kamera",
+      "labelAz": "Ön kamera",
+      "labelRu": "Фронтальная камера",
+      "synonyms": [
+        "Selfie camera",
+        "Front camera",
+        "Фронтальная камера"
+      ]
+    },
+    {
+      "key": "Nüvə sayı",
+      "labelAz": "Nüvə sayı",
+      "labelRu": "Количество ядер",
+      "synonyms": [
+        "CPU Cores",
+        "Number of cores",
+        "Количество ядер"
+      ]
+    },
+    {
+      "key": "SIM-kart növü",
+      "labelAz": "SIM-kart növü",
+      "labelRu": "Вид SIM-карты",
+      "synonyms": [
+        "SIM type",
+        "SIM card type",
+        "Вид SIM-карты"
+      ]
+    },
+    {
+      "key": "SIM-kart sayı",
+      "labelAz": "SIM-kart sayı",
+      "labelRu": "Количество SIM-карт",
+      "synonyms": [
+        "SIM count",
+        "Количество SIM-карт"
+      ]
+    },
+    {
+      "key": "Prosessorun adı",
+      "labelAz": "Prosessorun adı",
+      "labelRu": "Название процессора",
+      "synonyms": [
+        "Chipset",
+        "Processor name",
+        "Название процессора"
+      ]
+    },
+    {
+      "key": "Əməliyyat sistemi",
+      "labelAz": "Əməliyyat sistemi",
+      "labelRu": "Операционная система",
+      "synonyms": [
+        "OS",
+        "Operating system",
+        "Операционная система"
+      ]
+    },
+    {
+      "key": "Əməliyyat sistemin versiyası",
+      "labelAz": "Əməliyyat sistemin versiyası",
+      "labelRu": "Версия операционной системы",
+      "synonyms": [
+        "OS Version",
+        "Версия операционной системы"
+      ]
+    },
+    {
+      "key": "NFC",
+      "labelAz": "NFC",
+      "labelRu": "NFC",
+      "synonyms": [
+        "NFC"
+      ]
+    },
+    {
+      "key": "Prosessorun növü",
+      "labelAz": "Prosessorun növü",
+      "labelRu": "Вид процессора",
+      "synonyms": [
+        "Processor type",
+        "Вид процессора"
+      ]
+    },
+    {
+      "key": "Displey növü",
+      "labelAz": "Displey növü",
+      "labelRu": "Вид дисплея",
+      "synonyms": [
+        "Display type",
+        "Panel type",
+        "Вид дисплея"
+      ]
+    },
+    {
+      "key": "Simsiz enerji",
+      "labelAz": "Simsiz enerji",
+      "labelRu": "Беспроводная зарядка",
+      "synonyms": [
+        "Wireless charging",
+        "Беспроводная зарядка"
+      ]
+    },
+    {
+      "key": "İnfraqırmızı port",
+      "labelAz": "İnfraqırmızı port",
+      "labelRu": "Инфракрасный порт",
+      "synonyms": [
+        "Инфракрасный порт",
+        "IR port",
+        "Инфракрасный порт"
+      ]
+    },
+    {
+      "key": "Üz tanıma",
+      "labelAz": "Üz tanıma",
+      "labelRu": "Идентификация по лицу",
+      "synonyms": [
+        "Face recognition",
+        "Face ID",
+        "Идентификация по лицу"
+      ]
+    },
+    {
+      "key": "Sürətli enerji yığma",
+      "labelAz": "Sürətli enerji yığma",
+      "labelRu": "Быстрая зарядка",
+      "synonyms": [
+        "Быстрая зарядка",
+        "Быстрая зарядка"
+      ]
+    },
+    {
+      "key": "Qorunma dərəcəsi",
+      "labelAz": "Qorunma dərəcəsi",
+      "labelRu": "Степень защиты",
+      "synonyms": [
+        "IP rating",
+        "Protection rating",
+        "Степень защиты"
+      ]
+    },
+    {
+      "key": "Görüntü imkanı",
+      "labelAz": "Görüntü imkanı",
+      "labelRu": "Разрешение экрана",
+      "synonyms": [
+        "Resolution",
+        "Display resolution",
+        "Разрешение экрана"
+      ]
+    },
+    {
+      "key": "Ölçülər",
+      "labelAz": "Ölçülər",
+      "labelRu": "Размеры",
+      "synonyms": [
+        "Dimensions",
+        "Size",
+        "Размеры"
+      ]
+    },
+    {
+      "key": "Yaddaş kartı dəstəyi",
+      "labelAz": "Yaddaş kartı dəstəyi",
+      "labelRu": "Поддержка карт памяти",
+      "synonyms": [
+        "Memory card slot",
+        "SD slot",
+        "Поддержка карт памяти"
+      ]
+    },
+    {
+      "key": "Giroskop",
+      "labelAz": "Giroskop",
+      "labelRu": "Гироскоп",
+      "synonyms": [
+        "Gyroscope",
+        "Гироскоп"
+      ]
+    },
+    {
+      "key": "İşıq sensoru",
+      "labelAz": "İşıq sensoru",
+      "labelRu": "Датчик освещенности",
+      "synonyms": [
+        "Light sensor",
+        "Датчик освещенности"
+      ]
+    },
+    {
+      "key": "Yaxınlaşdırma sensoru",
+      "labelAz": "Yaxınlaşdırma sensoru",
+      "labelRu": "Датчик приближения",
+      "synonyms": [
+        "Proximity sensor",
+        "Датчик приближения"
+      ]
+    },
+    {
+      "key": "Optik sabitləşmə",
+      "labelAz": "Optik sabitləşmə",
+      "labelRu": "Оптическая стабилизация",
+      "synonyms": [
+        "OIS",
+        "Optical stabilization",
+        "Оптическая стабилизация"
+      ]
+    },
+    {
+      "key": "Video formatı",
+      "labelAz": "Video formatı",
+      "labelRu": "Формат видеосъемки",
+      "synonyms": [
+        "Video recording",
+        "Video formats",
+        "Формат видеосъемки"
+      ]
+    },
+    {
+      "key": "Bluetooth versiyası",
+      "labelAz": "Bluetooth versiyası",
+      "labelRu": "Версия Bluetooth",
+      "synonyms": [
+        "Bluetooth version",
+        "Версия Bluetooth"
+      ]
+    },
+    {
+      "key": "Avtofokus əsas kamera",
+      "labelAz": "Avtofokus əsas kamera",
+      "labelRu": "Автофокусировка основной камеры",
+      "synonyms": [
+        "Main camera autofocus",
+        "Автофокусировка основной камеры"
+      ]
+    },
+    {
+      "key": "Video icazəsi və kadr tezliyi",
+      "labelAz": "Video icazəsi və kadr tezliyi",
+      "labelRu": "Разрешение видео и частота кадров",
+      "synonyms": [
+        "Video resolution/fps",
+        "Разрешение видео и частота кадров"
+      ]
+    },
+    {
+      "key": "Video asta çəkiliş",
+      "labelAz": "Video asta çəkiliş",
+      "labelRu": "Замедленная видеосъёмка",
+      "synonyms": [
+        "Slow motion",
+        "Slow-mo",
+        "Замедленная видеосъемка"
+      ]
+    },
+    {
+      "key": "Rəng",
+      "labelAz": "Rəng",
+      "labelRu": "Цвет",
+      "synonyms": [
+        "Color",
+        "Colors",
+        "Цвет"
+      ]
+    },
+    {
+      "key": "Enerji toplama növü",
+      "labelAz": "Enerji toplama növü",
+      "labelRu": "Тип питания",
+      "synonyms": [
+        "Charging type",
+        "USB type",
+        "Тип питания"
+      ]
+    },
+    {
+      "key": "Qulaqlıq interfeysi",
+      "labelAz": "Qulaqlıq interfeysi",
+      "labelRu": "Интерфейс наушников",
+      "synonyms": [
+        "3.5mm jack",
+        "Headphone interface",
+        "Интерфейс наушников"
+      ]
+    },
+    {
+      "key": "Batareya növü",
+      "labelAz": "Batareya növü",
+      "labelRu": "Тип аккумулятора",
+      "synonyms": [
+        "Battery type",
+        "Тип аккумулятора"
+      ]
+    },
+    {
+      "key": "Akselerometr",
+      "labelAz": "Akselerometr",
+      "labelRu": "Акселерометр",
+      "synonyms": [
+        "Accelerometer",
+        "Акселерометр"
+      ]
+    },
+    {
+      "key": "Enerji yığma gücü",
+      "labelAz": "Enerji yığma gücü",
+      "labelRu": "Мощность зарядки",
+      "synonyms": [
+        "Charging power",
+        "Charging wattage",
+        "Мощность зарядки"
+      ]
+    },
+    {
+      "key": "İstehsal ili",
+      "labelAz": "İstehsal ili",
+      "labelRu": "Год выпуска",
+      "synonyms": [
+        "Release year",
+        "Production year",
+        "Год выпуска"
+      ]
+    },
+    {
+      "key": "Barmaq izi oxuyucusu",
+      "labelAz": "Barmaq izi oxuyucusu",
+      "labelRu": "Сканер отпечатков пальцев",
+      "synonyms": [
+        "Fingerprint sensor",
+        "Сканер отпечатков пальцев"
+      ]
+    },
+    {
+      "key": "Korpusun materialı",
+      "labelAz": "Korpusun materialı",
+      "labelRu": "Материал корпуса",
+      "synonyms": [
+        "Body material",
+        "Build materials",
+        "Материал корпуса"
+      ]
+    },
+    {
+      "key": "Komplektasiya",
+      "labelAz": "Komplektasiya",
+      "labelRu": "Комплектация",
+      "synonyms": [
+        "In the box",
+        "Package contents",
+        "Комплектация"
+      ]
+    },
+    {
+      "key": "Akkumulyatorun tutumu",
+      "labelAz": "Akkumulyatorun tutumu",
+      "labelRu": "Емкость аккумулятора",
+      "synonyms": [
+        "Battery capacity",
+        "mAh",
+        "Емкость аккумулятора"
+      ]
+    },
+    {
+      "key": "Seriya",
+      "labelAz": "Seriya",
+      "labelRu": "Серия",
+      "synonyms": [
+        "Series",
+        "Model series",
+        "Серия"
+      ]
+    },
+    {
+      "key": "Çəki",
+      "labelAz": "Çəki",
+      "labelRu": "Вес",
+      "synonyms": [
+        "Weight",
+        "Weight (g)",
+        "Вес"
+      ]
+    },
+    {
+      "key": "Şəbəkə standartı",
+      "labelAz": "Şəbəkə standartı",
+      "labelRu": "Стандарт связи",
+      "synonyms": [
+        "Network standard",
+        "4G/5G",
+        "Стандарт связи"
+      ]
+    },
+    {
+      "key": "Ekran",
+      "labelAz": "Ekran",
+      "labelRu": "Экран",
+      "synonyms": [
+        "Screen",
+        "Display size",
+        "Экран"
+      ]
+    }
+  ],
+  "tablet": [
+    {
+      "key": "Brend",
+      "labelAz": "Brend",
+      "labelRu": "Бренд",
+      "synonyms": [
+        "Brand",
+        "Brend",
+        "Бренд"
+      ]
+    },
+    {
+      "key": "Seriya",
+      "labelAz": "Seriya",
+      "labelRu": "Серия",
+      "synonyms": [
+        "Series",
+        "Model series",
+        "Серия"
+      ]
+    },
+    {
+      "key": "Ekranın diaqonalı",
+      "labelAz": "Ekran",
+      "labelRu": "Диагональ экрана",
+      "synonyms": [
+        "Screen size",
+        "Diagonal",
+        "Display size",
+        "Диагональ экрана"
+      ]
+    },
+    {
+      "key": "Əməliyyat sistemi",
+      "labelAz": "Əməliyyat sistemi",
+      "labelRu": "Операционная система",
+      "synonyms": [
+        "OS",
+        "Operating system",
+        "Операционная система"
+      ]
+    },
+    {
+      "key": "Əməliyyat sisteminin versiyası",
+      "labelAz": "Əməliyyat sisteminin versiyası",
+      "labelRu": "Версия операционной системы",
+      "synonyms": [
+        "OS Version",
+        "Android version",
+        "Версия операционной системы"
+      ]
+    },
+    {
+      "key": "Prosessorun adı",
+      "labelAz": "Prosessor",
+      "labelRu": "Процессор",
+      "synonyms": [
+        "Processor",
+        "Chipset",
+        "SoC",
+        "Название процессора"
+      ]
+    },
+    {
+      "key": "Prosessorun tezliyi",
+      "labelAz": "Prosessorun tezliyi",
+      "labelRu": "Частота процессора",
+      "synonyms": [
+        "CPU frequency",
+        "Clock speed",
+        "Частота процессора"
+      ]
+    },
+    {
+      "key": "Ekran görüntüsü",
+      "labelAz": "Ekran görüntüsü",
+      "labelRu": "Разрешение экрана",
+      "synonyms": [
+        "Screen resolution",
+        "Resolution",
+        "Display resolution",
+        "Разрешение экрана"
+      ]
+    },
+    {
+      "key": "Daxili yaddaş",
+      "labelAz": "Daxili yaddaş",
+      "labelRu": "Внутренняя память",
+      "synonyms": [
+        "Internal storage",
+        "Storage",
+        "ROM",
+        "Внутренняя память"
+      ]
+    },
+    {
+      "key": "Akkumulyatorun tutumu",
+      "labelAz": "Akkumulyatorun tutumu",
+      "labelRu": "Ёмкость аккумулятора",
+      "synonyms": [
+        "Battery capacity",
+        "mAh",
+        "Ёмкость аккумулятора"
+      ]
+    },
+    {
+      "key": "Operativ yaddaş",
+      "labelAz": "Operativ yaddaş",
+      "labelRu": "Оперативная память",
+      "synonyms": [
+        "RAM",
+        "Оперативная память"
+      ]
+    },
+    {
+      "key": "Ön kamera",
+      "labelAz": "Ön kamera",
+      "labelRu": "Фронтальная камера",
+      "synonyms": [
+        "Selfie camera",
+        "Front camera",
+        "Фронтальная камера"
+      ]
+    },
+    {
+      "key": "Əsas kamera",
+      "labelAz": "Əsas kamera",
+      "labelRu": "Камера",
+      "synonyms": [
+        "Rear camera",
+        "Main Camera",
+        "Camera",
+        "Камера"
+      ]
+    },
+    {
+      "key": "Video keyfiyyəti",
+      "labelAz": "Video keyfiyyəti",
+      "labelRu": "Качество видеосъемки",
+      "synonyms": [
+        "Video quality",
+        "Video resolution",
+        "Качество видео"
+      ]
+    },
+    {
+      "key": "Bluetooth versiyası",
+      "labelAz": "Bluetooth versiyası",
+      "labelRu": "Версия Bluetooth",
+      "synonyms": [
+        "Bluetooth version",
+        "Bluetooth",
+        "Версия Bluetooth"
+      ]
+    },
+    {
+      "key": "WiFi standartları",
+      "labelAz": "Wi-Fi",
+      "labelRu": "Wi-Fi",
+      "synonyms": [
+        "WiFi",
+        "Wi-Fi",
+        "Wireless",
+        "WLAN",
+        "Стандарты Wi-Fi"
+      ]
+    },
+    {
+      "key": "Qorunma dərəcəsi",
+      "labelAz": "Qorunma dərəcəsi",
+      "labelRu": "Степень защиты",
+      "synonyms": [
+        "IP rating",
+        "Protection rating",
+        "Waterproof",
+        "Степень защиты"
+      ]
+    },
+    {
+      "key": "Yaddaş kartı dəstəyi",
+      "labelAz": "Yaddaş kartı dəstəyi",
+      "labelRu": "Поддержка карт памяти",
+      "synonyms": [
+        "Memory card slot",
+        "SD slot",
+        "Expandable storage",
+        "Поддержка карт памяти"
+      ]
+    },
+    {
+      "key": "Displey növü",
+      "labelAz": "Displey növü",
+      "labelRu": "Вид дисплея",
+      "synonyms": [
+        "Display type",
+        "Panel type",
+        "Screen type",
+        "Вид дисплея"
+      ]
+    },
+    {
+      "key": "Korpusun materialı",
+      "labelAz": "Korpusun materialı",
+      "labelRu": "Материал корпуса",
+      "synonyms": [
+        "Body material",
+        "Build",
+        "Materials",
+        "Материал корпуса"
+      ]
+    },
+    {
+      "key": "Barmaq izi oxuyucu",
+      "labelAz": "Barmaq izi oxuyucu",
+      "labelRu": "Сканер отпечатков пальцев",
+      "synonyms": [
+        "Fingerprint sensor",
+        "Fingerprint",
+        "Сканер отпечатков пальцев"
+      ]
+    },
+    {
+      "key": "Üz tanıma",
+      "labelAz": "Üz tanıma",
+      "labelRu": "Идентификация по лицу",
+      "synonyms": [
+        "Face recognition",
+        "Face ID",
+        "Идентификация по лицу"
+      ]
+    },
+    {
+      "key": "Naviqasiya sistemi",
+      "labelAz": "Naviqasiya sistemi",
+      "labelRu": "Навигационная система",
+      "synonyms": [
+        "GPS",
+        "Navigation",
+        "GNSS",
+        "Навигационная система"
+      ]
+    },
+    {
+      "key": "SIM kartın sayı",
+      "labelAz": "SIM kartın sayı",
+      "labelRu": "Количество SIM-карт",
+      "synonyms": [
+        "SIM count",
+        "Number of SIM",
+        "Количество SIM-карт"
+      ]
+    },
+    {
+      "key": "Girişlər",
+      "labelAz": "Girişlər",
+      "labelRu": "Разъемы",
+      "synonyms": [
+        "Ports",
+        "Inputs",
+        "USB",
+        "Connections",
+        "Порты"
+      ]
+    },
+    {
+      "key": "Nüvə sayı",
+      "labelAz": "Nüvə sayı",
+      "labelRu": "Количество ядер",
+      "synonyms": [
+        "CPU Cores",
+        "Number of cores",
+        "Количество ядер"
+      ]
+    },
+    {
+      "key": "Buraxılış ili",
+      "labelAz": "Buraxılış ili",
+      "labelRu": "Год выпуска модели",
+      "synonyms": [
+        "Release year",
+        "Production year",
+        "Год выпуска"
+      ]
+    },
+    {
+      "key": "Şəbəkə",
+      "labelAz": "Şəbəkə",
+      "labelRu": "Связь",
+      "synonyms": [
+        "Network",
+        "5G",
+        "4G",
+        "LTE",
+        "Cellular",
+        "Сеть"
+      ]
+    },
+    {
+      "key": "Komplektasiya",
+      "labelAz": "Komplektasiya",
+      "labelRu": "Комплектация",
+      "synonyms": [
+        "In the box",
+        "Package contents",
+        "Box contents",
+        "Комплектация"
+      ]
+    },
+    {
+      "key": "Stilus (qələm) ilə istifadənin dəstəklənməsi",
+      "labelAz": "Stilus (qələm) ilə istifadənin dəstəklənməsi",
+      "labelRu": "Поддержка стилуса",
+      "synonyms": [
+        "Stylus support",
+        "Pen support",
+        "Поддержка стилуса"
+      ]
+    },
+    {
+      "key": "Rəng",
+      "labelAz": "Rəng",
+      "labelRu": "Цвет",
+      "synonyms": [
+        "Color",
+        "Colour",
+        "Цвет"
+      ]
+    },
+    {
+      "key": "SIM kartın növü",
+      "labelAz": "SIM kartın növü",
+      "labelRu": "Вид SIM-карты",
+      "synonyms": [
+        "SIM type",
+        "SIM card type",
+        "Вид SIM-карты"
+      ]
+    },
+    {
+      "key": "Qrafik prosessor",
+      "labelAz": "Qrafik prosessor",
+      "labelRu": "Графический процессор",
+      "synonyms": [
+        "GPU",
+        "Graphics processor",
+        "Adreno",
+        "Mali",
+        "Графический процессор"
+      ]
+    },
+    {
+      "key": "Kadr tezliyi",
+      "labelAz": "Kadr tezliyi (maksimum)",
+      "labelRu": "Частота кадров при видеосъемке (макс)",
+      "synonyms": [
+        "Frame rate",
+        "FPS",
+        "Частота кадров"
+      ]
+    },
+    {
+      "key": "Fləş",
+      "labelAz": "Fləş",
+      "labelRu": "Вспышка",
+      "synonyms": [
+        "Flash",
+        "Вспышка"
+      ]
+    },
+    {
+      "key": "Avtofokus",
+      "labelAz": "Avtofokus",
+      "labelRu": "Автофокус",
+      "synonyms": [
+        "Autofocus",
+        "AF",
+        "PDAF",
+        "Автофокус"
+      ]
+    },
+    {
+      "key": "Optik sabitləşmə",
+      "labelAz": "Optik sabitləşmə",
+      "labelRu": "Оптическая стабилизация",
+      "synonyms": [
+        "OIS",
+        "Optical stabilization",
+        "Оптическая стабилизация"
+      ]
+    },
+    {
+      "key": "Çəki",
+      "labelAz": "Çəki",
+      "labelRu": "Вес",
+      "synonyms": [
+        "Weight",
+        "Mass",
+        "Вес"
+      ]
+    },
+    {
+      "key": "Videonun asta çəkilişi",
+      "labelAz": "Videonun asta çəkilişi",
+      "labelRu": "Замедленная видеосъёмка",
+      "synonyms": [
+        "Slow motion",
+        "Slow-mo",
+        "Замедленная видеосъемка"
+      ]
+    },
+    {
+      "key": "Zəng funksiyası",
+      "labelAz": "Zəng funksiyası",
+      "labelRu": "Голосовые вызовы",
+      "synonyms": [
+        "Voice calls",
+        "Calling support",
+        "Telephony",
+        "Голосовые вызовы"
+      ]
+    },
+    {
+      "key": "Giroskop",
+      "labelAz": "Giroskop",
+      "labelRu": "Гироскоп",
+      "synonyms": [
+        "Gyroscope",
+        "Гироскоп"
+      ]
+    },
+    {
+      "key": "Qulaqlıq üçün giriş",
+      "labelAz": "Qulaqlıq üçün giriş",
+      "labelRu": "Разъем для наушников",
+      "synonyms": [
+        "Headphone jack",
+        "Audio jack",
+        "3.5mm",
+        "Разъём для наушников"
+      ]
+    },
+    {
+      "key": "Enerji yığma gücü",
+      "labelAz": "Enerji yığma gücü",
+      "labelRu": "Мощность зарядки",
+      "synonyms": [
+        "Charging power",
+        "Charging wattage",
+        "Мощность зарядки"
+      ]
+    },
+    {
+      "key": "Sürətli enerji yığma",
+      "labelAz": "Sürətli enerji yığma",
+      "labelRu": "Быстрая зарядка",
+      "synonyms": [
+        "Fast charging",
+        "Fast charge",
+        "Быстрая зарядка"
+      ]
+    },
+    {
+      "key": "Ölçülər",
+      "labelAz": "Ölçülər (H × E × D)",
+      "labelRu": "Размеры (В × Ш × Г)",
+      "synonyms": [
+        "Dimensions",
+        "Size",
+        "Размеры"
+      ]
+    }
+  ],
+  "notebook": [
+    {
+      "key": "Brend",
+      "labelAz": "Brend",
+      "labelRu": "Бренд",
+      "synonyms": [
+        "Brand",
+        "Brend",
+        "İstehsalçı",
+        "Бренд",
+        "Manufacturer"
+      ]
+    },
+    {
+      "key": "Model",
+      "labelAz": "Model",
+      "labelRu": "Модель",
+      "synonyms": [
+        "Model",
+        "Модель",
+        "Model name"
+      ]
+    },
+    {
+      "key": "Videokartın növü",
+      "labelAz": "Videokartın növü",
+      "labelRu": "Тип видеокарты",
+      "synonyms": [
+        "GPU type",
+        "Graphics type",
+        "Тип видеокарты",
+        "Dedicated/Integrated"
+      ]
+    },
+    {
+      "key": "Wi-Fi",
+      "labelAz": "Wi-Fi",
+      "labelRu": "Wi-Fi",
+      "synonyms": [
+        "WiFi",
+        "Wi-Fi",
+        "Wireless",
+        "WLAN"
+      ]
+    },
+    {
+      "key": "Sensorlu ekran",
+      "labelAz": "Sensorlu ekran",
+      "labelRu": "Сенсорный экран",
+      "synonyms": [
+        "Touchscreen",
+        "Touch screen",
+        "Сенсорный экран"
+      ]
+    },
+    {
+      "key": "360 dərəcə fırlanma",
+      "labelAz": "360 dərəcə fırlanma",
+      "labelRu": "Поворот на 360 градусов",
+      "synonyms": [
+        "360 rotation",
+        "2-in-1",
+        "Convertible",
+        "Поворот на 360°"
+      ]
+    },
+    {
+      "key": "Klaviaturanın dili",
+      "labelAz": "Klaviaturanın dili",
+      "labelRu": "Язык клавиатуры",
+      "synonyms": [
+        "Keyboard language",
+        "Layout",
+        "Keyboard layout",
+        "Язык клавиатуры"
+      ]
+    },
+    {
+      "key": "Rəng",
+      "labelAz": "Rəng",
+      "labelRu": "Цвет",
+      "synonyms": [
+        "Color",
+        "Colour",
+        "Цвет"
+      ]
+    },
+    {
+      "key": "Çəki",
+      "labelAz": "Çəki",
+      "labelRu": "Вес",
+      "synonyms": [
+        "Weight",
+        "Вес"
+      ]
+    },
+    {
+      "key": "Kateqoriya",
+      "labelAz": "Kateqoriya",
+      "labelRu": "Категория",
+      "synonyms": [
+        "Category",
+        "Type",
+        "Категория",
+        "Use case"
+      ]
+    },
+    {
+      "key": "Ölçülər",
+      "labelAz": "Ölçülər",
+      "labelRu": "Размеры (Ш × Г × В)",
+      "synonyms": [
+        "Dimensions",
+        "Size",
+        "Габариты",
+        "Размеры"
+      ]
+    },
+    {
+      "key": "Veb-kamera",
+      "labelAz": "Veb-kamera",
+      "labelRu": "Веб-камера",
+      "synonyms": [
+        "Webcam",
+        "Camera",
+        "Web camera",
+        "Веб-камера"
+      ]
+    },
+    {
+      "key": "Prosessor",
+      "labelAz": "Prosessor",
+      "labelRu": "Процессор",
+      "synonyms": [
+        "Processor",
+        "CPU",
+        "Процессор",
+        "İşlemci"
+      ]
+    },
+    {
+      "key": "Akkumulyatorun tutumu",
+      "labelAz": "Akkumulyatorun tutumu",
+      "labelRu": "Емкость аккумулятора",
+      "synonyms": [
+        "Battery capacity",
+        "Battery",
+        "Батарея",
+        "Ёмкость аккумулятора"
+      ]
+    },
+    {
+      "key": "Operativ yaddaş",
+      "labelAz": "Operativ yaddaş",
+      "labelRu": "Оперативная память",
+      "synonyms": [
+        "RAM",
+        "Memory",
+        "Оперативная память"
+      ]
+    },
+    {
+      "key": "Daxili yaddaş",
+      "labelAz": "Daxili yaddaş",
+      "labelRu": "Внутренняя память",
+      "synonyms": [
+        "Storage",
+        "SSD",
+        "HDD",
+        "Internal storage",
+        "Внутренняя память"
+      ]
+    },
+    {
+      "key": "Videokart",
+      "labelAz": "Videokart",
+      "labelRu": "Видеокарта",
+      "synonyms": [
+        "GPU",
+        "Graphics",
+        "Graphics card",
+        "Видеокарта"
+      ]
+    },
+    {
+      "key": "Displey",
+      "labelAz": "Displey",
+      "labelRu": "Дисплей",
+      "synonyms": [
+        "Display",
+        "Screen",
+        "Panel",
+        "Дисплей"
+      ]
+    },
+    {
+      "key": "Ekranın diaqonalı",
+      "labelAz": "Ekranın diaqonalı",
+      "labelRu": "Диагональ экрана",
+      "synonyms": [
+        "Screen size",
+        "Diagonal",
+        "Display size",
+        "Диагональ экрана"
+      ]
+    },
+    {
+      "key": "Əməliyyat sistemi",
+      "labelAz": "Əməliyyat sistemi",
+      "labelRu": "Операционная система",
+      "synonyms": [
+        "OS",
+        "Operating system",
+        "Операционная система"
+      ]
+    },
+    {
+      "key": "Girişlər",
+      "labelAz": "Girişlər",
+      "labelRu": "Разъемы",
+      "synonyms": [
+        "Ports",
+        "Inputs",
+        "Connections",
+        "Connectivity",
+        "Порты"
+      ]
+    }
+  ],
+  "fridge": [
+    {
+      "key": "Brend",
+      "labelAz": "Brend",
+      "labelRu": "Бренд",
+      "synonyms": [
+        "Brand",
+        "Manufacturer",
+        "İstehsalçı",
+        "Бренд",
+        "Производитель"
+      ]
+    },
+    {
+      "key": "Növ",
+      "labelAz": "Növ",
+      "labelRu": "Тип",
+      "synonyms": [
+        "Type",
+        "Refrigerator type",
+        "Tip",
+        "Тип холодильника"
+      ]
+    },
+    {
+      "key": "Toplam faydalı həcm",
+      "labelAz": "Toplam faydalı həcm",
+      "labelRu": "Общий полезный объем",
+      "synonyms": [
+        "Total net capacity",
+        "Total usable volume",
+        "Net capacity",
+        "Общий полезный объём"
+      ]
+    },
+    {
+      "key": "Soyuducu kameranın faydalı həcmi",
+      "labelAz": "Soyuducu kameranın faydalı həcmi",
+      "labelRu": "Полезный объем холодильной камеры",
+      "synonyms": [
+        "Fridge net capacity",
+        "Refrigerator compartment capacity",
+        "Полезный объём холодильной камеры"
+      ]
+    },
+    {
+      "key": "Dondurucu kameranın faydalı həcmi",
+      "labelAz": "Dondurucu kameranın faydalı həcmi",
+      "labelRu": "Полезный объем морозильной камеры",
+      "synonyms": [
+        "Freezer net capacity",
+        "Freezer compartment capacity",
+        "Полезный объём морозильной камеры"
+      ]
+    },
+    {
+      "key": "Əritmə sistemi",
+      "labelAz": "Əritmə sistemi",
+      "labelRu": "Система размораживания",
+      "synonyms": [
+        "Defrost system",
+        "Cooling system",
+        "No Frost",
+        "Система разморозки"
+      ]
+    },
+    {
+      "key": "Səs səviyyəsi",
+      "labelAz": "Səs səviyyəsi",
+      "labelRu": "Уровень шума",
+      "synonyms": [
+        "Noise level",
+        "Sound level",
+        "Уровень шума"
+      ]
+    },
+    {
+      "key": "Enerji istifadə sinfi",
+      "labelAz": "Enerji istifadə sinfi",
+      "labelRu": "Класс энергопотребления",
+      "synonyms": [
+        "Energy class",
+        "Energy efficiency class",
+        "Класс энергоэффективности"
+      ]
+    },
+    {
+      "key": "Quraşdırılma növü",
+      "labelAz": "Quraşdırılma növü",
+      "labelRu": "Тип установки",
+      "synonyms": [
+        "Installation type",
+        "Freestanding",
+        "Built-in",
+        "Тип установки"
+      ]
+    },
+    {
+      "key": "Rəng",
+      "labelAz": "Rəng",
+      "labelRu": "Цвет",
+      "synonyms": [
+        "Color",
+        "Colour",
+        "Цвет"
+      ]
+    },
+    {
+      "key": "Qapıların sayı",
+      "labelAz": "Qapıların sayı",
+      "labelRu": "Количество дверей",
+      "synonyms": [
+        "Number of doors",
+        "Door count",
+        "Количество дверей"
+      ]
+    },
+    {
+      "key": "Buz generatoru",
+      "labelAz": "Buz generatoru",
+      "labelRu": "Генератор льда",
+      "synonyms": [
+        "Ice maker",
+        "Ice generator",
+        "Ледогенератор"
+      ]
+    },
+    {
+      "key": "İdarəetmə növü",
+      "labelAz": "İdarəetmə növü",
+      "labelRu": "Тип управления",
+      "synonyms": [
+        "Control type",
+        "Controls",
+        "Тип управления"
+      ]
+    },
+    {
+      "key": "Əlavə xüsusiyyətlər",
+      "labelAz": "Əlavə xüsusiyyətlər",
+      "labelRu": "Дополнительные функции",
+      "synonyms": [
+        "Additional features",
+        "Extra features",
+        "Special features",
+        "Дополнительные функции"
+      ]
+    },
+    {
+      "key": "Dondurucu kameranın yerləşməsi",
+      "labelAz": "Dondurucu kameranın yerləşməsi",
+      "labelRu": "Расположение морозильной камеры",
+      "synonyms": [
+        "Freezer position",
+        "Freezer location",
+        "Расположение морозильной камеры"
+      ]
+    },
+    {
+      "key": "Hündürlük",
+      "labelAz": "Hündürlük",
+      "labelRu": "Высота",
+      "synonyms": [
+        "Height",
+        "Высота"
+      ]
+    },
+    {
+      "key": "En",
+      "labelAz": "En",
+      "labelRu": "Ширина",
+      "synonyms": [
+        "Width",
+        "Ширина"
+      ]
+    },
+    {
+      "key": "Dərinlik",
+      "labelAz": "Dərinlik",
+      "labelRu": "Глубина",
+      "synonyms": [
+        "Depth",
+        "Глубина"
+      ]
+    },
+    {
+      "key": "Kompressor tipi",
+      "labelAz": "Kompressor tipi",
+      "labelRu": "Тип компрессора",
+      "synonyms": [
+        "Compressor type",
+        "Inverter compressor",
+        "Тип компрессора"
+      ]
+    },
+    {
+      "key": "Qapı istiqamətinin dəyişdirilməsi",
+      "labelAz": "Qapı istiqamətinin dəyişdirilməsi",
+      "labelRu": "Перенавешиваемые двери",
+      "synonyms": [
+        "Reversible door",
+        "Door direction change",
+        "Перенавешивание двери"
+      ]
+    },
+    {
+      "key": "İqlim sinfi",
+      "labelAz": "İqlim sinfi",
+      "labelRu": "Климатический класс",
+      "synonyms": [
+        "Climate class",
+        "Climate rating",
+        "Климатический класс"
+      ]
+    },
+    {
+      "key": "Rəflərin materialı",
+      "labelAz": "Rəflərin materialı",
+      "labelRu": "Материал полок",
+      "synonyms": [
+        "Shelf material",
+        "Shelves material",
+        "Материал полок"
+      ]
+    },
+    {
+      "key": "Displey",
+      "labelAz": "Displey",
+      "labelRu": "Дисплей",
+      "synonyms": [
+        "Display",
+        "Screen",
+        "Дисплей"
+      ]
+    },
+    {
+      "key": "Tutacaqların növü",
+      "labelAz": "Tutacaqların növü",
+      "labelRu": "Тип ручек",
+      "synonyms": [
+        "Handle type",
+        "Handles",
+        "Тип ручек"
+      ]
+    },
+    {
+      "key": "Təravət bölməsi",
+      "labelAz": "Təravət bölməsi",
+      "labelRu": "Зона свежести",
+      "synonyms": [
+        "Fresh zone",
+        "Freshness zone",
+        "Crisper zone",
+        "Зона свежести"
+      ]
+    },
+    {
+      "key": "Kameraların sayı",
+      "labelAz": "Kameraların sayı",
+      "labelRu": "Количество камер",
+      "synonyms": [
+        "Number of compartments",
+        "Chamber count",
+        "Количество камер"
+      ]
+    },
+    {
+      "key": "Ölçülər (H × E × D)",
+      "labelAz": "Ölçülər (H × E × D)",
+      "labelRu": "Размеры (В × Ш × Г)",
+      "synonyms": [
+        "Dimensions",
+        "Dimensions (H × W × D)",
+        "Размеры"
+      ]
+    },
+    {
+      "key": "İstehsalçı ölkə",
+      "labelAz": "İstehsalçı ölkə",
+      "labelRu": "Страна-производитель",
+      "synonyms": [
+        "Country of manufacture",
+        "Country of origin",
+        "Made in",
+        "Страна производства",
+        "Страна-производитель"
+      ]
+    },
+    {
+      "key": "Toplam həcm",
+      "labelAz": "Toplam həcm",
+      "labelRu": "Общий объем",
+      "synonyms": [
+        "Total capacity",
+        "Gross capacity",
+        "Total volume",
+        "Общий объём"
+      ]
+    }
+  ],
+  "washing_machine": [
+    {
+      "key": "Brend",
+      "labelAz": "Brend",
+      "labelRu": "Бренд",
+      "synonyms": [
+        "Brand",
+        "Manufacturer",
+        "İstehsalçı",
+        "Бренд",
+        "Производитель"
+      ]
+    },
+    {
+      "key": "İstehsalçı ölkə",
+      "labelAz": "İstehsalçı ölkə",
+      "labelRu": "Страна-производитель",
+      "synonyms": [
+        "Country of manufacture",
+        "Country of origin",
+        "Made in",
+        "Страна производства"
+      ]
+    },
+    {
+      "key": "Buxarla yuma",
+      "labelAz": "Buxarla yuma",
+      "labelRu": "Стирка паром",
+      "synonyms": [
+        "Steam wash",
+        "Steam function",
+        "Steam",
+        "Паровая стирка"
+      ]
+    },
+    {
+      "key": "Quraşdırılma növü",
+      "labelAz": "Quraşdırılma növü",
+      "labelRu": "Тип установки",
+      "synonyms": [
+        "Installation type",
+        "Freestanding",
+        "Built-in",
+        "Тип установки"
+      ]
+    },
+    {
+      "key": "Camaşırların maksimum yüklənməsi",
+      "labelAz": "Camaşırların maksimum yüklənməsi",
+      "labelRu": "Максимальная загрузка белья",
+      "synonyms": [
+        "Maximum wash load",
+        "Wash capacity",
+        "Maximum load",
+        "Загрузка белья"
+      ]
+    },
+    {
+      "key": "Qurutma növü",
+      "labelAz": "Qurutma növü",
+      "labelRu": "Тип сушки",
+      "synonyms": [
+        "Drying",
+        "Dryer function",
+        "Drying type",
+        "Тип сушки"
+      ]
+    },
+    {
+      "key": "Çamaşırların qurutma zamanı maksimum yüklənməsi",
+      "labelAz": "Çamaşırların qurutma zamanı maksimum yüklənməsi",
+      "labelRu": "Максимальная загрузка при сушке",
+      "synonyms": [
+        "Drying capacity",
+        "Maximum drying load",
+        "Загрузка при сушке"
+      ]
+    },
+    {
+      "key": "Ölçülər (H × E × D)",
+      "labelAz": "Ölçülər (H × E × D)",
+      "labelRu": "Размеры (В × Ш × Г)",
+      "synonyms": [
+        "Dimensions",
+        "Dimensions (H × W × D)",
+        "Размеры"
+      ]
+    },
+    {
+      "key": "Displey",
+      "labelAz": "Displey",
+      "labelRu": "Дисплей",
+      "synonyms": [
+        "Display",
+        "Screen",
+        "Дисплей"
+      ]
+    },
+    {
+      "key": "Enerji istifadə sinfi",
+      "labelAz": "Enerji istifadə sinfi",
+      "labelRu": "Класс энергопотребления",
+      "synonyms": [
+        "Energy class",
+        "Energy efficiency class",
+        "Класс энергоэффективности"
+      ]
+    },
+    {
+      "key": "Proqramların sayı",
+      "labelAz": "Proqramların sayı",
+      "labelRu": "Количество программ",
+      "synonyms": [
+        "Number of programs",
+        "Programmes",
+        "Programs",
+        "Количество программ"
+      ]
+    },
+    {
+      "key": "Yuma sinfi",
+      "labelAz": "Yuma sinfi",
+      "labelRu": "Класс стирки",
+      "synonyms": [
+        "Washing class",
+        "Wash performance class",
+        "Класс стирки"
+      ]
+    },
+    {
+      "key": "Sıxma sürəti sinfi",
+      "labelAz": "Sıxma sürəti sinfi",
+      "labelRu": "Класс отжима",
+      "synonyms": [
+        "Spin-drying class",
+        "Spin class",
+        "Класс отжима"
+      ]
+    },
+    {
+      "key": "Maksimal sıxma sürəti",
+      "labelAz": "Maksimal sıxma sürəti",
+      "labelRu": "Максимальная скорость отжима",
+      "synonyms": [
+        "Maximum spin speed",
+        "Spin speed",
+        "Максимальная скорость отжима"
+      ]
+    },
+    {
+      "key": "Sıxma sürətinin seçimi",
+      "labelAz": "Sıxma sürətinin seçimi",
+      "labelRu": "Выбор скорости отжима",
+      "synonyms": [
+        "Variable spin speed",
+        "Spin speed selection",
+        "Выбор скорости отжима"
+      ]
+    },
+    {
+      "key": "Rəng",
+      "labelAz": "Rəng",
+      "labelRu": "Цвет",
+      "synonyms": [
+        "Color",
+        "Colour",
+        "Цвет"
+      ]
+    },
+    {
+      "key": "Xüsusiyyətlər",
+      "labelAz": "Xüsusiyyətlər",
+      "labelRu": "Особенности",
+      "synonyms": [
+        "Features",
+        "Special features",
+        "Functions",
+        "Особенности"
+      ]
+    },
+    {
+      "key": "Yuma zamanı yükləmə imkanı",
+      "labelAz": "Yuma zamanı yükləmə imkanı",
+      "labelRu": "Дозагрузка белья",
+      "synonyms": [
+        "Add garment",
+        "Reload function",
+        "Add laundry",
+        "Дозагрузка белья"
+      ]
+    },
+    {
+      "key": "Dərinlik",
+      "labelAz": "Dərinlik",
+      "labelRu": "Глубина",
+      "synonyms": [
+        "Depth",
+        "Глубина"
+      ]
+    },
+    {
+      "key": "Gecikdirilmiş start",
+      "labelAz": "Gecikdirilmiş start",
+      "labelRu": "Отложенный старт",
+      "synonyms": [
+        "Delay start",
+        "Delayed start",
+        "Отложенный старт"
+      ]
+    },
+    {
+      "key": "Qalıq zamanın göstəricisi",
+      "labelAz": "Qalıq zamanın göstəricisi",
+      "labelRu": "Индикация оставшегося времени",
+      "synonyms": [
+        "Remaining time indicator",
+        "Time remaining display",
+        "Индикация времени"
+      ]
+    },
+    {
+      "key": "Yuma zamanı səs səviyyəsi",
+      "labelAz": "Yuma zamanı səs səviyyəsi",
+      "labelRu": "Уровень шума при стирке",
+      "synonyms": [
+        "Washing noise level",
+        "Noise level washing",
+        "Уровень шума при стирке"
+      ]
+    },
+    {
+      "key": "Sıxma zamanı səs səviyyəsi",
+      "labelAz": "Sıxma zamanı səs səviyyəsi",
+      "labelRu": "Уровень шума при отжиме",
+      "synonyms": [
+        "Spin noise level",
+        "Noise level spinning",
+        "Уровень шума при отжиме"
+      ]
+    },
+    {
+      "key": "Hündürlük",
+      "labelAz": "Hündürlük",
+      "labelRu": "Высота",
+      "synonyms": [
+        "Height",
+        "Высота"
+      ]
+    },
+    {
+      "key": "En",
+      "labelAz": "En",
+      "labelRu": "Ширина",
+      "synonyms": [
+        "Width",
+        "Ширина"
+      ]
+    },
+    {
+      "key": "\"Uşaq geyiminin yuyulması\" proqramı",
+      "labelAz": "\"Uşaq geyiminin yuyulması\" proqramı",
+      "labelRu": "Программа «Детская одежда»",
+      "synonyms": [
+        "Baby care program",
+        "Baby clothing programme",
+        "Детская одежда"
+      ]
+    },
+    {
+      "key": "Yuma zamanı su sərfiyyatı",
+      "labelAz": "Yuma zamanı su sərfiyyatı",
+      "labelRu": "Расход воды за цикл",
+      "synonyms": [
+        "Water consumption per cycle",
+        "Water consumption",
+        "Расход воды"
+      ]
+    },
+    {
+      "key": "Wi-Fi",
+      "labelAz": "Wi-Fi",
+      "labelRu": "Wi-Fi",
+      "synonyms": [
+        "Wi-Fi",
+        "Wifi",
+        "Smart control",
+        "WLAN"
+      ]
+    },
+    {
+      "key": "Növ",
+      "labelAz": "Növ",
+      "labelRu": "Тип",
+      "synonyms": [
+        "Type",
+        "Washer type",
+        "Washer-dryer",
+        "Тип"
+      ]
+    },
+    {
+      "key": "Yükləmə növü",
+      "labelAz": "Yükləmə növü",
+      "labelRu": "Тип загрузки",
+      "synonyms": [
+        "Loading type",
+        "Front load",
+        "Top load",
+        "Тип загрузки"
+      ]
+    },
+    {
+      "key": "Uşaq kilidi",
+      "labelAz": "Uşaq kilidi",
+      "labelRu": "Защита от детей",
+      "synonyms": [
+        "Child lock",
+        "Child safety lock",
+        "Защита от детей"
+      ]
+    },
+    {
+      "key": "Mühərrik növü",
+      "labelAz": "Mühərrik növü",
+      "labelRu": "Тип двигателя",
+      "synonyms": [
+        "Motor type",
+        "Inverter motor",
+        "Direct Drive",
+        "Тип двигателя"
+      ]
+    }
+  ]
+}

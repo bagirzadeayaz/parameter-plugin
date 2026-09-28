@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kontakt_parameter": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/host.mjs"]
+    }
+  }
+}

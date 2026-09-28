@@ -1,6 +1,14 @@
-# Kontakt Parameter — standalone Codex plugin
+# Kontakt Parameter — Codex and Claude Code
 
-This project contains only the Kontakt Parameter plugin and its Codex marketplace catalog. It contains no backend deployment code or database credentials. Future searches are submitted anonymously to the existing web platform; local backups and PDFs remain on the user's device. Historical local searches are not uploaded.
+This project contains separate Codex and Claude Code packages and their marketplace catalogs. It contains no backend deployment code or database credentials. Future searches are submitted anonymously to the existing web platform; local backups and PDFs remain on the user's device. Historical local searches are not uploaded.
+
+## Installation prompt for either host
+
+Copy the complete [installation prompt](KONTAKT_PARAMETER_INITIAL_PROMPT.md) into Codex or Claude Code. It detects the active host and installs only the matching edition. Or paste this short prompt:
+
+> Install Kontakt Parameter from https://github.com/bagirzadeayaz/parameter-plugin.git for the host running this conversation. Read and follow KONTAKT_PARAMETER_INITIAL_PROMPT.md. Use the Codex package only in Codex and the Claude package only in Claude Code. Check dependencies and ask before installing missing software. Preserve my settings, existing records and local changes. Verify installation and tool activation separately; explain any required reload or new session. Do not start a product search yet.
+
+Claude Code users: follow [Claude installation and updates](claude/README.md). The sections below describe **Codex** unless stated otherwise. Claude does not use Codex's per-search runtime updater.
 
 ## Before using it
 
@@ -22,15 +30,15 @@ node plugins/kontakt-parameter/scripts/enable-web-search.mjs
 
 The web-search setup changes the root `web_search` setting in your Codex user configuration to `live`. No Parameter sign-in page opens. Start a new Codex chat after installation, select Kontakt Parameter and send a product model. If new tools are not visible, restart Codex.
 
-## Publish later
+## Repository contents
 
-Create a GitHub repository of your choice and upload the CONTENTS of this directory, retaining the hidden `.agents` folder and the hidden `.codex-plugin` and `.mcp.json` files inside the plugin. Do not upload the parent application project. No push has been performed as part of preparing this package.
+When publishing this repository, retain both hidden marketplace folders (`.agents` and `.claude-plugin`), both plugin packages, and their hidden manifests and `.mcp.json` files. Do not upload the parent application project.
 
 The [installation prompt](KONTAKT_PARAMETER_INITIAL_PROMPT.md) uses the published `bagirzadeayaz/parameter-plugin` repository. If you use GitHub's web uploader, confirm that hidden files were included; using Git is safer for this layout.
 
 ## Automatic updates
 
-Before every new product request, the installed launcher checks `bagirzadeayaz/parameter-plugin` on GitHub. Compatible commits on `main` are downloaded automatically and applied to that request, including its current research instructions. No separate updater, account, or additional interface is needed. Research and results remain local; only public update requests are sent to GitHub.
+Before every new product request, the installed Codex launcher checks `bagirzadeayaz/parameter-plugin` on GitHub. Compatible commits on `main` are downloaded automatically and applied to that request, including its current research instructions. No separate updater, account, or additional interface is needed. Only public update requests are sent to GitHub; product results and PDFs are submitted separately to the existing platform, with local copies retained.
 
 Downloads are pinned to one commit, verified against Git blob hashes, and checked for import errors, category schemas, workflow availability, runtime ABI and the installed tool contract before activation. Each search keeps its selected runtime through completion and after app restarts. Downloads go under the Codex profile at `kontakt-parameter/updates`; version pins go under `kontakt-parameter/runtime-pins`. Result JSON and PDF paths are unchanged.
 

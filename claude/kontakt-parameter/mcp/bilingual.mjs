@@ -29,8 +29,8 @@ export function normalizeRussianValues(az, ru = {}, category, { strict = false }
     // Catalogues occasionally contain AZ strings in RU cells: never repeat that error.
     if (translated && /[əğıİ]/.test(translated)) translated = null;
     const converted = units(value);
-    if (!translated && (converted !== value || /^[\d\s.,+×/"%–-]+$/.test(value))) translated = converted;
     if (!translated && !missing(ru[field])) translated = units(ru[field]);
+    if (!translated && (converted !== value || /^[\d\s.,+×/"%–-]+$/.test(value))) translated = converted;
     if (!translated && !/[əğıİşçöü]/i.test(value) && !['Növ','Quraşdırılma növü','İdarəetmə növü','Komplektasiya','Korpusun materialı','Əlavə xüsusiyyətlər','Xüsusiyyətlər','Klaviaturanın dili','Kateqoriya','İstehsalçı ölkə','Rəflərin materialı','Tutacaqların növü','Mühərrik növü','Kompressor tipi','Videokartın növü'].includes(field)) translated = value;
     if (!translated || /[əğıİ]/.test(translated) || numbers(translated) !== numbers(value)) {
       errors.push(field); result[field] = '—';

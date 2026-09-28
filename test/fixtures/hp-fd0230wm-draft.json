@@ -1,0 +1,606 @@
+{
+  "parameters_az": {
+    "Brend": "HP",
+    "Model": "15-fd0230wm (C68GJUA#ABA)",
+    "Videokartın növü": "İnteqrə edilmiş",
+    "Wi-Fi": "Wi-Fi 6 (802.11ax)",
+    "Sensorlu ekran": "Var",
+    "360 dərəcə fırlanma": null,
+    "Klaviaturanın dili": "İngilis",
+    "Rəng": "Cozy Cashmere",
+    "Çəki": "1.59 kq",
+    "Kateqoriya": "Noutbuk",
+    "Ölçülər": "36 × 23.6 × 1.9 sm",
+    "Veb-kamera": "720p HD",
+    "Prosessor": "Intel Core i3-N305 (8 nüvə, 1.8–3.8 GHz, 6 MB keş)",
+    "Akkumulyatorun tutumu": "41 Vt*s",
+    "Operativ yaddaş": "8 GB DDR4 3200 MHz",
+    "Daxili yaddaş": "256 GB M.2 PCIe NVMe SSD",
+    "Videokart": "Intel UHD Graphics",
+    "Displey": "FHD IPS, 1920 × 1080, 60 Hz, 300 nit, parıltı əleyhinə",
+    "Ekranın diaqonalı": "15.6\"",
+    "Əməliyyat sistemi": "Windows 11 Home",
+    "Girişlər": "2 × USB-A 5 Gbit/s, 1 × USB-C 5 Gbit/s, HDMI 1.4b, 3.5 mm audio"
+  },
+  "parameters_ru": {
+    "Brend": "HP",
+    "Model": "15-fd0230wm (C68GJUA#ABA)",
+    "Videokartın növü": "Интегрированная",
+    "Wi-Fi": "Wi-Fi 6 (802.11ax)",
+    "Sensorlu ekran": "Есть",
+    "360 dərəcə fırlanma": null,
+    "Klaviaturanın dili": "Английский",
+    "Rəng": "Cozy Cashmere",
+    "Çəki": "1.59 кг",
+    "Kateqoriya": "Ноутбук",
+    "Ölçülər": "36 × 23.6 × 1.9 см",
+    "Veb-kamera": "720p HD",
+    "Prosessor": "Intel Core i3-N305 (8 ядер, 1.8–3.8 ГГц, кэш 6 МБ)",
+    "Akkumulyatorun tutumu": "41 Вт*ч",
+    "Operativ yaddaş": "8 ГБ DDR4 3200 МГц",
+    "Daxili yaddaş": "256 ГБ M.2 PCIe NVMe SSD",
+    "Videokart": "Intel UHD Graphics",
+    "Displey": "FHD IPS, 1920 × 1080, 60 Гц, 300 нит, антибликовый",
+    "Ekranın diaqonalı": "15.6\"",
+    "Əməliyyat sistemi": "Windows 11 Home",
+    "Girişlər": "2 × USB-A 5 Гбит/с, 1 × USB-C 5 Гбит/с, HDMI 1.4b, аудио 3.5 мм"
+  },
+  "confidence": {
+    "Brend": "high",
+    "Model": "high",
+    "Videokartın növü": "high",
+    "Wi-Fi": "high",
+    "Sensorlu ekran": "high",
+    "360 dərəcə fırlanma": "unresolved",
+    "Klaviaturanın dili": "medium",
+    "Rəng": "high",
+    "Çəki": "high",
+    "Kateqoriya": "high",
+    "Ölçülər": "medium",
+    "Veb-kamera": "high",
+    "Prosessor": "high",
+    "Akkumulyatorun tutumu": "high",
+    "Operativ yaddaş": "high",
+    "Daxili yaddaş": "high",
+    "Videokart": "high",
+    "Displey": "high",
+    "Ekranın diaqonalı": "high",
+    "Əməliyyat sistemi": "high",
+    "Girişlər": "high"
+  },
+  "field_evidence": {
+    "Brend": {
+      "value": "HP",
+      "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "source_type": "brand_specialist_retailer",
+      "quote": "Manufacturer: HP; exact code C68GJUA.",
+      "confidence": "high",
+      "evidence_basis": "single_nonofficial",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": []
+    },
+    "Model": {
+      "value": "15-fd0230wm (C68GJUA#ABA)",
+      "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+      "source_type": "international_retailer",
+      "quote": "HP 15-fd0230wm; P/N C68GJUA.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+        "https://e-catalog.com/HP-15-FD0230WM.htm",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Videokartın növü": {
+      "value": "İnteqrə edilmiş",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Graphics card type: integrated; model: UHD Graphics Xe 32EUs.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Wi-Fi": {
+      "value": "Wi-Fi 6 (802.11ax)",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Wi-Fi 6 (802.11ax).",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Sensorlu ekran": {
+      "value": "Var",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Exact C68GJUA configuration is marked touchscreen.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.mastertech.com.py/producto/notebook-hp-15-fd0230wm-i3/"
+      ]
+    },
+    "Çəki": {
+      "value": "1.59 kq",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Weight: 1.59 kg.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Kateqoriya": {
+      "value": "Noutbuk",
+      "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "source_type": "brand_specialist_retailer",
+      "quote": "Product category: Notebooks.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://e-catalog.com/HP-15-FD0230WM.htm",
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11"
+      ]
+    },
+    "Ölçülər": {
+      "value": "36 × 23.6 × 1.9 sm",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Dimensions (W×D×T): 360×236×19 mm.",
+      "confidence": "medium",
+      "evidence_basis": "single_nonofficial",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": []
+    },
+    "Veb-kamera": {
+      "value": "720p HD",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Webcam: 1280×720 (HD).",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Prosessor": {
+      "value": "Intel Core i3-N305 (8 nüvə, 1.8–3.8 GHz, 6 MB keş)",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Intel Core i3-N305, 8 cores, 1.8 GHz base, 3.8 GHz turbo.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Akkumulyatorun tutumu": {
+      "value": "41 Vt*s",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Battery capacity: 41 W·h.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Operativ yaddaş": {
+      "value": "8 GB DDR4 3200 MHz",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "RAM: 8 GB DDR4, 3200 MHz.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Daxili yaddaş": {
+      "value": "256 GB M.2 PCIe NVMe SSD",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Drive: 256 GB M.2 NVMe SSD.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Videokart": {
+      "value": "Intel UHD Graphics",
+      "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "source_type": "brand_specialist_retailer",
+      "quote": "Graphics: Intel UHD Graphics.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Displey": {
+      "value": "FHD IPS, 1920 × 1080, 60 Hz, 300 nit, parıltı əleyhinə",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "IPS, 1920×1080, 60 Hz, 300 nit, anti-glare.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.mastertech.com.py/producto/notebook-hp-15-fd0230wm-i3/",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Ekranın diaqonalı": {
+      "value": "15.6\"",
+      "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "source_type": "brand_specialist_retailer",
+      "quote": "Diagonal: 15.6-inch FHD Touch.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://e-catalog.com/HP-15-FD0230WM.htm",
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Əməliyyat sistemi": {
+      "value": "Windows 11 Home",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "Preinstalled OS: Windows 11 Home.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Girişlər": {
+      "value": "2 × USB-A 5 Gbit/s, 1 × USB-C 5 Gbit/s, HDMI 1.4b, 3.5 mm audio",
+      "source_url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "source_type": "specialist_catalog",
+      "quote": "2 USB-A 5Gbps, 1 USB-C 5Gbps, HDMI 1.4b.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "text",
+      "exact_model_visible": true,
+      "exact_product_page_verified": true,
+      "supporting_sources": [
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    },
+    "Klaviaturanın dili": {
+      "value": "İngilis",
+      "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "source_type": "brand_specialist_retailer",
+      "quote": "Language: Eng; exact C68GJUA product page.",
+      "confidence": "medium",
+      "evidence_basis": "visual_direct",
+      "evidence_kind": "product_photo",
+      "image_index": 0,
+      "image_url": "https://img.pccomponentes.com/articles/1118/11188221/1620-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11.jpg",
+      "visible_detail": "Front product image shows a Latin QWERTY full-size keyboard with numeric keypad.",
+      "visual_confidence": 0.91,
+      "exact_model_visible": false,
+      "exact_product_page_verified": true,
+      "complete_relevant_area_visible": true,
+      "supporting_sources": [
+        "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11"
+      ]
+    },
+    "Rəng": {
+      "value": "Cozy Cashmere",
+      "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+      "source_type": "international_retailer",
+      "quote": "Exact C68GJUA product images show the warm beige Cozy Cashmere finish.",
+      "confidence": "high",
+      "evidence_basis": "independent_consensus",
+      "evidence_kind": "product_photo",
+      "image_index": 0,
+      "image_url": "https://img.pccomponentes.com/articles/1118/11188221/1620-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11.jpg",
+      "visible_detail": "Neutral product views consistently show a warm cashmere/beige chassis.",
+      "visual_confidence": 0.96,
+      "exact_model_visible": false,
+      "exact_product_page_verified": true,
+      "complete_relevant_area_visible": true,
+      "supporting_sources": [
+        "https://e-catalog.com/HP-15-FD0230WM.htm",
+        "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+        "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop"
+      ]
+    }
+  },
+  "product_images": [
+    {
+      "image_url": "https://img.pccomponentes.com/articles/1118/11188221/1620-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11.jpg",
+      "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+      "title": "HP 15-fd0230wm C68GJUA məhsul şəkli",
+      "exact_model_match": true
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "title": "HP Store Uzbekistan — HP 15-fd0230wm",
+      "source_type": "brand_specialist_retailer",
+      "exact_model_match": true
+    },
+    {
+      "url": "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "title": "E-Catalog — HP 15-fd0230wm C68GJUA",
+      "source_type": "specialist_catalog",
+      "exact_model_match": true
+    },
+    {
+      "url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+      "title": "PcComponentes — HP 15-fd0230wm",
+      "source_type": "international_retailer",
+      "exact_model_match": true
+    },
+    {
+      "url": "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+      "title": "Computer Village — HP 15-fd0230wm",
+      "source_type": "international_retailer",
+      "exact_model_match": true
+    },
+    {
+      "url": "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+      "title": "Eastern IT — HP 15-fd0230wm",
+      "source_type": "international_retailer",
+      "exact_model_match": true
+    },
+    {
+      "url": "https://www.mastertech.com.py/producto/notebook-hp-15-fd0230wm-i3/",
+      "title": "MasterTech — HP 15-fd0230wm",
+      "source_type": "international_retailer",
+      "exact_model_match": true
+    }
+  ],
+  "unresolved_fields": [
+    "360 dərəcə fırlanma"
+  ],
+  "notes": "C68GJUA#ABA konfiqurasiyasının Azərbaycan bazarına aid rəsmi HP səhifəsi tapılmadı; regional tətbiq təsdiqlənmədiyi üçün nəticə dəqiq məhsul koduna əsaslanan qlobal mənbələrlə hazırlanıb.",
+  "recovery_report": {
+    "initialSearchCompleted": true,
+    "nativeWebSearchUsed": true,
+    "nativeWebSearchEventCount": 2,
+    "sourcePagesOpened": true,
+    "openedSourceUrls": [
+      "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+      "https://e-catalog.com/HP-15-FD0230WM.htm",
+      "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+      "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+      "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+      "https://www.mastertech.com.py/producto/notebook-hp-15-fd0230wm-i3/"
+    ],
+    "targetedSearches": [
+      {
+        "query": "\"15-fd0230wm\" 360 hinge",
+        "fields": [
+          "360 dərəcə fırlanma"
+        ],
+        "stage": "missing_field_recovery",
+        "foundFields": []
+      },
+      {
+        "query": "\"C68GJUA\" convertible 360",
+        "fields": [
+          "360 dərəcə fırlanma"
+        ],
+        "stage": "missing_field_recovery",
+        "foundFields": []
+      },
+      {
+        "query": "\"C68GJUA\" \"Cozy Cashmere\"",
+        "fields": [
+          "Rəng"
+        ],
+        "stage": "conflict_recovery",
+        "foundFields": [
+          "Rəng"
+        ]
+      },
+      {
+        "query": "\"15-fd0230wm\" color",
+        "fields": [
+          "Rəng"
+        ],
+        "stage": "conflict_recovery",
+        "foundFields": [
+          "Rəng"
+        ]
+      }
+    ],
+    "remainingFields": [
+      "360 dərəcə fırlanma"
+    ],
+    "conflictingFields": [
+      "Rəng"
+    ],
+    "conflictResolutions": [
+      {
+        "field": "Rəng",
+        "outcome": "independent_majority",
+        "evidenceUrls": [
+          "https://e-catalog.com/HP-15-FD0230WM.htm",
+          "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "https://www.computervillage.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+          "https://www.eit.com.bd/hp-15-fd0230wm-intel-core-i3-n305-laptop",
+          "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/"
+        ],
+        "officialSourceReviews": [],
+        "reason": "Four exact-code sources and inspected product images support Cozy Cashmere; the single generic Silver listing is treated as a simplified retailer colour label.",
+        "selectedValue": "Cozy Cashmere",
+        "resolution": "independent_majority"
+      }
+    ],
+    "imageAnalysis": {
+      "applicable": true,
+      "attempted": true,
+      "completed": true,
+      "imageAnalysisEventCount": 6,
+      "analyzedFields": [
+        "Rəng",
+        "Klaviaturanın dili",
+        "360 dərəcə fırlanma",
+        "Girişlər"
+      ],
+      "acceptedFields": [
+        "Rəng",
+        "Klaviaturanın dili"
+      ],
+      "unavailableFields": [
+        "360 dərəcə fırlanma",
+        "Girişlər"
+      ],
+      "unavailableReasons": {
+        "360 dərəcə fırlanma": "Static exact-product images do not demonstrate the full hinge travel; two dedicated exact-code searches found no credible 360-degree specification.",
+        "Girişlər": "Inspected views do not expose both side panels completely enough to visually enumerate every port; the value is retained from consistent exact-model text specifications."
+      },
+      "inspectedImageUrls": [
+        "https://img.pccomponentes.com/articles/1118/11188221/1620-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11.jpg",
+        "https://hpstore.uz/upload/webp/resize_cache/e28/400_400_1/x74zalendtygpmr00moe3td0hlz5s3l8.webp",
+        "https://thumb.pccomponentes.com/w-530-530/articles/1118/11188221/4743-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-especificaciones.jpg",
+        "https://thumb.pccomponentes.com/w-530-530/articles/1118/11188221/6361-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-opiniones.jpg",
+        "https://img.pccomponentes.com/articles/1118/11188221/3123-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-mejor-precio.jpg",
+        "https://img.pccomponentes.com/articles/1118/11188221/5299-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-caracteristicas.jpg"
+      ],
+      "observations": [
+        {
+          "image_url": "https://img.pccomponentes.com/articles/1118/11188221/1620-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11.jpg",
+          "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng",
+            "Klaviaturanın dili"
+          ],
+          "observation": "Exact-model front view clearly shows the warm Cozy Cashmere chassis and a Latin QWERTY full-size keyboard with numeric keypad."
+        },
+        {
+          "image_url": "https://hpstore.uz/upload/webp/resize_cache/e28/400_400_1/x74zalendtygpmr00moe3td0hlz5s3l8.webp",
+          "source_url": "https://hpstore.uz/shop/noutbuki/hp_15_fd0230wm_8gj_intel_core_i3_n305_ddr4_8gb_ssd_256gb_15_6_fhd_touch_intel_uhd_graphics_/",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng",
+            "Klaviaturanın dili"
+          ],
+          "observation": "Exact-code front view confirms the light cashmere/silver finish and Latin QWERTY keyboard layout."
+        },
+        {
+          "image_url": "https://thumb.pccomponentes.com/w-530-530/articles/1118/11188221/4743-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-especificaciones.jpg",
+          "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng"
+          ],
+          "observation": "Rear three-quarter view confirms the warm cashmere chassis; only one side edge is partially visible, so the complete port set cannot be verified visually."
+        },
+        {
+          "image_url": "https://thumb.pccomponentes.com/w-530-530/articles/1118/11188221/6361-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-opiniones.jpg",
+          "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng",
+            "Klaviaturanın dili"
+          ],
+          "observation": "Front view confirms the cashmere finish and English QWERTY key legends."
+        },
+        {
+          "image_url": "https://img.pccomponentes.com/articles/1118/11188221/3123-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-mejor-precio.jpg",
+          "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng",
+            "Klaviaturanın dili"
+          ],
+          "observation": "Angled open-laptop view confirms the standard clamshell appearance, cashmere finish and Latin keyboard; it does not prove the hinge rotation limit."
+        },
+        {
+          "image_url": "https://img.pccomponentes.com/articles/1118/11188221/5299-portatil-hp-15-fd0230wm-156-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11-caracteristicas.jpg",
+          "source_url": "https://www.pccomponentes.com/portatil-hp-15-fd0230wm-15-6-intel-core-i3-n305-8gb-256gb-ssd-igpu-windows-11",
+          "exact_product_page_verified": true,
+          "usable": true,
+          "visible_fields": [
+            "Rəng",
+            "Klaviaturanın dili"
+          ],
+          "observation": "Exact-product promotional image shows the cashmere chassis and English QWERTY keyboard; ports are not fully visible."
+        }
+      ],
+      "stoppedBecause": "All usable exact-product image views were inspected; two direct-photo fields were resolved and two were marked unavailable with field-specific reasons."
+    },
+    "stoppedBecause": "The only unresolved field received two dedicated exact-code searches without credible evidence."
+  }
+}

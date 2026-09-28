@@ -30,6 +30,15 @@ node plugins/kontakt-parameter/scripts/enable-web-search.mjs
 
 The web-search setup changes the root `web_search` setting in your Codex user configuration to `live`. No Parameter sign-in page opens. Start a new Codex chat after installation, select Kontakt Parameter and send a product model. If new tools are not visible, restart Codex.
 
+## Validation regression checks
+
+Run `node --test test/*.test.mjs` from the repository root. This checks bilingual
+values and platform error handling without contacting the live service. To also
+exercise the real backend normalizer, set `KONTAKT_TEST_BACKEND` to the absolute
+path of the platform's `backend` directory before running the same command.
+The integration test uses the HP 15-fd0230wm payload that exposed the regression;
+it performs no database writes or remote requests.
+
 ## Repository contents
 
 When publishing this repository, retain both hidden marketplace folders (`.agents` and `.claude-plugin`), both plugin packages, and their hidden manifests and `.mcp.json` files. Do not upload the parent application project.

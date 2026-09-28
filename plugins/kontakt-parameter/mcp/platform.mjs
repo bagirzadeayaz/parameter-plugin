@@ -12,7 +12,12 @@ export async function submitPlatform(task, action, payload, fetchImpl = fetch) {
       ...(action === 'pdf' ? { pdfBase64: payload?.pdfBase64 } : research ? { payload: research } : {}) } }),
   });
   const body = await response.json();
-  if (!response.ok || body.error) throw new Error(body.error?.message || 'Platform submission failed. Local data is retained.');
+  if (!response.ok || body.error) {
+    const status = String(body.error?.status || 'internal').toLowerCase().replaceAll('_', '-');
+    throw Object.assign(new Error(body.error?.message || 'Platform submission failed. Local data is retained.'), {
+      code: status, httpStatus: response.status, action,
+    });
+  }
   const result = body.result || body.data;
   if (!result?.taskId || (action === 'validate' ? result.valid !== true : result.stored !== true)) throw new Error('Platform did not confirm storage. Local data is retained.');
   return result;

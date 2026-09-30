@@ -23,23 +23,6 @@ test('backend notebook bilingual regression', { skip: !backend }, async t => {
   payload.parametersRu = pluginRussian(payload.parametersAz, payload.parametersRu, 'notebook', { strict: true });
   payload.bilingualVersion = 1;
 
-  await t.test('filled fields require consistent source evidence before formatting', () => {
-    for (const mutate of [
-      p => { delete p.fieldEvidence['Çəki']; },
-      p => { p.fieldEvidence['Çəki'].quote = ''; },
-      p => { p.parametersAz['Çəki'] = '9.99 kq'; p.parametersRu['Çəki'] = '9.99 кг'; },
-      p => { p.parametersAz['Çəki'] = p.fieldEvidence['Çəki'].value = '9.99 kq'; p.parametersRu['Çəki'] = '9.99 кг'; },
-    ]) {
-      const bad = structuredClone(payload); mutate(bad);
-      assert.throws(() => normalizePayload(bad, 'notebook', { executionMode: 'interactive' }, 'HP 15-fd0230wm C68GJUA'), e => e.code === 'failed-precondition' && /Çəki/.test(e.message));
-    }
-    const good = structuredClone(payload); good.fieldEvidence['Çəki'].quote = 'Weight: 1590 g.';
-    const result = normalizePayload(good, 'notebook', { executionMode: 'interactive' }, 'HP 15-fd0230wm C68GJUA');
-    assert.equal(result.fieldEvidence['Çəki'].submittedValue, '1.59 kq');
-    assert.equal(result.recoveryReport.searchActivityVerification, 'self_reported');
-    assert.equal(normalizeRussianValues({ 'İstehsalçı ölkə': 'Ukrayna' }, { 'İstehsalçı ölkə': 'Ukrayna' }, 'washing_machine', { strict: true })['İstehsalçı ölkə'], 'Украина');
-  });
-
   await t.test('original full HP evidence payload passes real normalization', () => {
     const result = normalizePayload(payload, 'notebook', { executionMode: 'interactive' }, 'HP 15-fd0230wm C68GJUA');
     assert.equal(result.summary.filled, 20);

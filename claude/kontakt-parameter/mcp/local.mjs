@@ -6,6 +6,7 @@ import { submitPlatform } from './platform.mjs';
 import { getCategorySchema } from './schema.mjs';
 import { summarize } from './result.mjs';
 import { normalizeRussianValues } from './bilingual.mjs';
+import { assertFieldEvidence, canonicalEvidence, canonicalSource } from './evidence.mjs';
 
 function storageRoot() {
   const profile = process.env.CLAUDE_CONFIG_DIR || join(process.env.USERPROFILE || process.env.HOME || homedir(), '.claude');
@@ -72,6 +73,7 @@ export class LocalClient {
     if (unknown.length) errors.push(`Sxemdə olmayan sahələr: ${unknown.join(', ')}`);
     if (errors.length) throw Object.assign(new Error(errors.join(' ')), { code: 'failed-precondition' });
     const normalizedParameters = Object.fromEntries(schema.fields.map(field => [field.key, useful(payload.parametersAz?.[field.key]) ? String(payload.parametersAz[field.key]) : '—']));
+    assertFieldEvidence(normalizedParameters, payload.fieldEvidence, payload.recoveryReport);
     const filled = Object.values(normalizedParameters).filter(useful).length;
     const localRu = normalizeRussianValues(normalizedParameters, payload.parametersRu, task.category, { strict: true });
     const remote = await this.sync(task, 'validate', { ...payload, parametersRu: localRu, bilingualVersion: 1 });
@@ -80,14 +82,19 @@ export class LocalClient {
   }
   async saveCodexResult(id, payload = {}) {
     const validation = await this.validateCodexResult(id, payload); const task = await loadTask(id); const now = Date.now();
-    const fieldEvidence = payload.fieldEvidence || {}; const sourceMap = new Map((payload.sources || []).map(source => [source.url, { ...source, supportedFields: [] }]));
+    const fieldEvidence = canonicalEvidence(payload.fieldEvidence); const sourceMap = new Map((payload.sources || []).map(canonicalSource).filter(source => source.url).map(source => [source.url, { ...source, supportedFields: [] }]));
     for (const [field, evidence] of Object.entries(fieldEvidence)) {
+      if (!useful(validation.normalizedParameters[field]) || evidence?.confidence === 'unresolved') continue;
       const urls = [evidence?.source_url, evidence?.sourceUrl, ...(evidence?.supporting_sources || []).map(source => typeof source === 'string' ? source : source.url)].filter(Boolean);
       for (const url of urls) { if (!sourceMap.has(url)) sourceMap.set(url, { url, title: '', source_type: evidence?.source_type || '', supportedFields: [] }); sourceMap.get(url).supportedFields.push(field); }
     }
     const sources = [...sourceMap.values()].map(source => ({ ...source, sourceType: source.source_type || source.sourceType || '', exactModelMatch: source.exact_model_match ?? source.exactModelMatch ?? true, supportedFields: [...new Set(source.supportedFields || [])], supportedFieldCount: new Set(source.supportedFields || []).size, requiredFieldCount: validation.total }));
     const results = sources.map(source => ({ url: source.url, title: source.title || '', sourceType: source.sourceType, exactModelMatch: source.exactModelMatch, parameters: Object.fromEntries(source.supportedFields.map(field => [field, validation.normalizedParameters[field]])), fieldEvidence: Object.fromEntries(source.supportedFields.map(field => [field, fieldEvidence[field]])) }));
+    const recoveryReport = { ...payload.recoveryReport, searchActivityVerification: 'self_reported' };
     Object.assign(task, { status: 'done', updatedAt: now, scrapedParams: validation.normalizedParameters, scrapedParamsRU: validation.normalizedParametersRu, confidence: payload.confidence || {}, analysisProgress: { status: 'done', pct: 100, startedAt: task.analysisProgress?.startedAt || task.createdAt, finishedAt: now }, scrapedData: { summary: { count: validation.total, filled: validation.filled, completenessPct: validation.completenessPct }, sources, results, productImages: (payload.productImages || []).map(image => ({ imageUrl: image.image_url, sourceUrl: image.source_url, title: image.title || '', exactModelMatch: true })), unresolvedFields: payload.unresolvedFields || [] } });
+    task.scrapedData.recoveryReport = recoveryReport;
+    task.scrapedData.fieldEvidence = fieldEvidence;
+    task.scrapedData.evidenceValidationVersion = 1;
     await saveTask(task);
     const remote = await this.sync(task, 'save', { ...payload, parametersRu: validation.normalizedParametersRu, bilingualVersion: 1 });
     return { taskId: id, status: 'done', storage: remote ? 'local_and_web' : 'local_device', platformStored: Boolean(remote?.stored), platformTaskId: remote?.taskId || null, databaseAccess: false };

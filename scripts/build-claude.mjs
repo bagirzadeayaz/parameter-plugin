@@ -7,7 +7,7 @@ const source = join(repo, 'plugins/kontakt-parameter');
 const target = join(repo, 'claude/kontakt-parameter');
 const check = process.argv.includes('--check');
 // Explicit allowlist: never ship credentials, results, Codex config, or its updater.
-export const files = ['mcp/bilingual-catalog.mjs', 'mcp/bilingual.mjs', 'mcp/image.mjs',
+export const files = ['mcp/bilingual-catalog.mjs', 'mcp/bilingual.mjs', 'mcp/evidence.mjs', 'mcp/image.mjs',
   'mcp/local.mjs', 'mcp/pdf.mjs', 'mcp/platform.mjs', 'mcp/presentation.mjs',
   'mcp/result.mjs', 'mcp/schema.mjs', 'mcp/server.mjs',
   'schemas.json', 'scripts/generate_product_pdf.py', 'workflow.md'];

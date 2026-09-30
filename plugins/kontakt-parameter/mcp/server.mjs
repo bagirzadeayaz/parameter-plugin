@@ -5,6 +5,7 @@ import { shapeTask } from './result.mjs';
 import { getCategorySchema } from './schema.mjs';
 import { fetchProductImage } from './image.mjs';
 import { existingProductPdf, generateProductPdf } from './pdf.mjs';
+import { canonicalEvidence, canonicalSource, sourceUrl } from './evidence.mjs';
 
 const categorySchema = { type: 'string', enum: ['phone', 'tablet', 'notebook', 'fridge', 'washing_machine'] };
 function redactError(error) { return String(error?.message || error || 'Unknown error').replace(/((?:refresh_token|id_token|password|api[_-]?key)\s*[=:]\s*)[^\s,}]+/gi, '$1[redacted]').slice(0, 800); }
@@ -103,12 +104,13 @@ export function canonicalizeAnalysisArgs(args = {}) {
     }
     recovery.targetedSearches = (Array.isArray(recovery.targetedSearches) ? recovery.targetedSearches : []).flatMap(item => {
       const queries = Array.isArray(item?.queries) ? item.queries : [item?.query];
-      return queries.filter(Boolean).map(query => ({ ...item, query, queries: undefined }));
+      const { queries: _queries, ...entry } = item || {};
+      return queries.filter(Boolean).map(query => ({ ...entry, query }));
     });
     const topReviews = Array.isArray(recovery.officialSourceReviews) ? recovery.officialSourceReviews : [];
     recovery.conflictResolutions = (Array.isArray(recovery.conflictResolutions) ? recovery.conflictResolutions : []).map(item => {
       const reviews = (Array.isArray(item?.officialSourceReviews) ? item.officialSourceReviews : topReviews.filter(review => !review?.field || review.field === item?.field)).map(review => ({
-        url: review?.url,
+        url: sourceUrl(review),
         exactVariantMatch: review?.exactVariantMatch === true,
         applicable: review?.applicable === true,
         value: review?.value ?? null,
@@ -126,11 +128,8 @@ export function canonicalizeAnalysisArgs(args = {}) {
     });
     delete recovery.officialSourceReviews;
   }
-  const fieldEvidence = Object.fromEntries(Object.entries(args.field_evidence || {}).map(([field, evidence]) => [field, {
-    ...evidence,
-    supporting_sources: (Array.isArray(evidence?.supporting_sources) ? evidence.supporting_sources : []).map(source => typeof source === 'string' ? { url: source } : source),
-  }]));
-  return { ...args, field_evidence: fieldEvidence, recovery_report: recovery };
+  const fieldEvidence = canonicalEvidence(args.field_evidence);
+  return { ...args, sources: (args.sources || []).map(canonicalSource), field_evidence: fieldEvidence, recovery_report: recovery };
 }
 
 export function analysisPayload(rawArgs) {
@@ -208,6 +207,7 @@ export async function handleMessage(message, client) {
     catch (error) {
       const validationTool = ['validate_product_search_draft', 'save_product_search_result'].includes(message.params?.name);
       const validationRecovery = validationTool ? {
+        fieldIssues: error.fieldIssues || [],
         recoverable: true,
         terminal: false,
         userVisible: false,

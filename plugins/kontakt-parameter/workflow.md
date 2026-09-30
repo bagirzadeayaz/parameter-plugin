@@ -5,6 +5,18 @@ description: Use Kontakt Parameter whenever a user submits a bare product name o
 
 # Kontakt product search
 
+## Evidence preservation and validation
+
+Keep a compact field ledger as research progresses: field, submitted AZ value, exact source URL, exact supporting quotation, variant applicability, and conflict state. Keep each supported value and its evidence together through research, formatting, validation, and save. More reasoning must not trigger repeated searches for fields already supported by applicable exact-variant evidence.
+
+Never truncate an unopened web result to its first N characters before examining it. Read the returned source text first, locate the relevant passages, and retain those passages with their URL. If only part of a page was returned, open the relevant section or document; absence from a truncated excerpt does not establish absence from the source. Preserve all relevant competing passages when a field is disputed. Read one representation of MCP data (prefer structuredContent); do not copy both equivalent JSON representations into working context.
+
+Every filled field requires field_evidence containing value equal to the submitted parameters_az claim, source_url present in openedSourceUrls, and a nonempty source quote for text evidence (or visible_detail for image evidence). Retain the source claim before catalogue formatting; do not rewrite a quotation to match the formatted output. For weight, quote the weight with its units; legitimate unit conversions are allowed. Confidence is a judgement and does not replace evidence. Use canonical URL keys: url in sources, supporting_sources and officialSourceReviews; source_url on primary field evidence.
+
+Search counts in an interactive host are self-reported, not authenticated telemetry. Count only actual successful native search events visible in this search. Never estimate counts, count opens as searches, or inflate a count to pass validation. The plugin records this limitation in its audit log. Save the complete recovery report. If validation returns fieldIssues, repair each named field using the retained source or fresh field-specific research, then retry the complete draft.
+
+Apply the same workflow at every supported reasoning setting. Keep the existing regional, exact-model and visual evidence requirements. Resolve a field only when its evidence supports the selected variant; retain unresolved values when recovery finds no applicable reliable evidence. The minimum recovery searches are a minimum, not a reason to repeat identical unsuccessful queries indefinitely.
+
 ## Independent product searches
 
 A newly submitted full product name or an explicit request to search again starts a fresh search, even when it exactly matches the immediately preceding product. Call `prepare_product_search` without `task_id` again, resolve any needed variants, and call `start_product_search` to create a new record. Do not answer by copying the earlier response, fetching an earlier saved result, reusing its PDF, or treating a matching product name as a cache hit. Perform new native Web Search after the new record starts, reopen supporting pages, inspect image pixels again, and generate the new record's PDF. Identical verified values are acceptable; skipped research is not.

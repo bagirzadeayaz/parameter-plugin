@@ -10,7 +10,7 @@ const overrides = {
   'Aşağıda': 'Снизу', 'Yuxarıda': 'Сверху', 'Yanda': 'Сбоку', 'İnvertor': 'Инверторный', 'İnvertor-xətti': 'Линейно-инверторный', 'Sadə': 'Обычный',
   'Şüşə': 'Стеклянный', 'Metal': 'Металлический', 'Plastik': 'Пластиковый', 'Gizli': 'Скрытый', 'Xarici': 'Внешний',
   'Frontal': 'Фронтальная', 'Şaquli': 'Вертикальная', 'Yuyan': 'Стиральная', 'Yuyan-qurudan': 'Стирально-сушильная',
-  'Türkiyə': 'Турция', 'Çin': 'Китай', 'Polşa': 'Польша', 'Almaniya': 'Германия', 'İtaliya': 'Италия', 'Rusiya': 'Россия',
+  'Türkiyə': 'Турция', 'Çin': 'Китай', 'Polşa': 'Польша', 'Almaniya': 'Германия', 'İtaliya': 'Италия', 'Rusiya': 'Россия', 'Ukrayna': 'Украина',
 };
 const key = value => String(value).trim().toLocaleLowerCase('az');
 const units = value => String(value)
